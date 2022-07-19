@@ -7,6 +7,9 @@ public class Categorie {
 	/**
 	 * 
 	 */
+	
+	//CONSTRUCTEURS
+	
 	public Categorie() {
 	}
 	/**
@@ -15,6 +18,9 @@ public class Categorie {
 	public Categorie(String libelle) {
 		this.libelle = libelle;
 	}
+	
+	
+	//GETTER/SETTER
 	/**
 	 * @return the libelle
 	 */
@@ -39,6 +45,9 @@ public class Categorie {
 	public void setNo_categorie(int no_categorie) {
 		this.no_categorie = no_categorie;
 	}
+	
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Categorie [no_categorie=" + no_categorie + ", libelle=" + libelle + "]";

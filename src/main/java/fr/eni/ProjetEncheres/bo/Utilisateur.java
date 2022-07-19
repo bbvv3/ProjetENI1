@@ -16,6 +16,11 @@ public class Utilisateur {
 		private String mot_de_passe;
 		private int credit;
 		private boolean administrateur;
+		
+		
+		//CONSTRUCTEURS
+		
+		
 		/**
 		 * 
 		 */
@@ -46,6 +51,10 @@ public class Utilisateur {
 			this.credit = credit;
 			this.administrateur = administrateur;
 		}
+		
+		//GETTER/SETTER
+		
+		
 		/**
 		 * @return the no_utilisateur
 		 */
@@ -190,6 +199,9 @@ public class Utilisateur {
 		public void setAdministrateur(boolean administrateur) {
 			this.administrateur = administrateur;
 		}
+		
+		//toString
+		
 		@Override
 		public String toString() {
 			return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="

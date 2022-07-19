@@ -7,6 +7,10 @@ public class Retrait {
 	private String code_postal;
 	private String ville;
 	private Article article;
+	
+	
+	//CONSTRUCTEUR
+	
 	/**
 	 * 
 	 */
@@ -24,6 +28,10 @@ public class Retrait {
 		this.ville = ville;
 		this.article = article;
 	}
+	
+	
+	//GETTER/SETTER
+	
 	/**
 	 * @return the rue
 	 */
@@ -72,6 +80,10 @@ public class Retrait {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
+	
+	
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + ", article=" + article

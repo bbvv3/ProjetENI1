@@ -9,6 +9,9 @@ public class Encheres {
 	private Date date_enchere;
 	private int montant_enchere;
 	
+	
+	//CONSTRUCTEURS
+	
 	/**
 	 * 
 	 */
@@ -27,6 +30,9 @@ public class Encheres {
 		this.date_enchere = date_enchere;
 		this.montant_enchere = montant_enchere;
 	}
+	
+	
+	//GETTER/SETTER
 
 	/**
 	 * @return the utilisateur
@@ -84,6 +90,9 @@ public class Encheres {
 		this.montant_enchere = montant_enchere;
 	}
 
+	
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Encheres [utilisateur=" + utilisateur + ", article=" + article + ", date_enchere=" + date_enchere
