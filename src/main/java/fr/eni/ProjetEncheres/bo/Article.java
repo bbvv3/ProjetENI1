@@ -16,6 +16,8 @@ public class Article {
 	/**
 	 * 
 	 */
+	
+	//CONSTRUCTEURS
 	public Article() {
 	}
 	/**
@@ -35,6 +37,8 @@ public class Article {
 		this.utilisateur = utilisateur;
 		this.categorie = categorie;
 	}
+	
+	//GETTERS & SETTERS
 	/**
 	 * @return the no_article
 	 */
@@ -143,6 +147,8 @@ public class Article {
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
+	
+	//toString
 	@Override
 	public String toString() {
 		return "Article [no_article=" + no_article + ", nom_article=" + nom_article + ", description=" + description
