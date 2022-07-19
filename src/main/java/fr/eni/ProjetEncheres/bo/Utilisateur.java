@@ -31,6 +31,7 @@ public class Utilisateur {
 		 * @param nom
 		 * @param prenom
 		 * @param email
+		 * @param telephone
 		 * @param rue
 		 * @param code_postal
 		 * @param ville
@@ -38,12 +39,13 @@ public class Utilisateur {
 		 * @param credit
 		 * @param administrateur
 		 */
-		public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String code_postal,
+		public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal,
 				String ville, String mot_de_passe, int credit, boolean administrateur) {
 			this.pseudo = pseudo;
 			this.nom = nom;
 			this.prenom = prenom;
 			this.email = email;
+			this.telephone = telephone;
 			this.rue = rue;
 			this.code_postal = code_postal;
 			this.ville = ville;
