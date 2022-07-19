@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Inscription</title>
+ <meta name="author" content="">
 </head>
 <body>
 	<header>
@@ -12,7 +13,7 @@
 	</header>
 	<div>
 		<h2>Créer un compte</h2>
-		<form action="" method="post">
+		<form action="${Context.servletContext.contextPath}/Inscription" method="post">
 			<label for="id_pseudo">Pseudo* : </label><input type="text" id="id_pseudo" name="pseudo" size="10" required/>
 			<label for="id_nom">Nom* : </label><input type="text" id="id_nom" name="nom" size="30" required/>
 			<label for="id_prenom">Prenom* : </label><input type="text" id="id_prenom" name="prenom" size="30" required/>
