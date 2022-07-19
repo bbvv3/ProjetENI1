@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ProjetEncheres.bll.UtilisateurManager;
+import fr.eni.ProjetEncheres.bo.Utilisateur;
+
 
 /**
  * Servlet implementation class ServletInscription
@@ -31,6 +34,36 @@ public class ServletInscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String pseudo;
+		String nom;
+		String prenom;
+		String email;
+		String telephone;
+		String rue;
+		String code_postal;
+		String ville;
+		String mot_de_passe;
+		Utilisateur user = null;
+		String erreur = null;
+		
+		pseudo = request.getParameter("pseudo");
+		nom = request.getParameter("nom");
+		prenom = request.getParameter("prenom");
+		email = request.getParameter("mail");
+		telephone = request.getParameter("tel");
+		rue = request.getParameter("rue");
+		code_postal = request.getParameter("codePostal");
+		ville = request.getParameter("ville");
+		mot_de_passe = request.getParameter("mdp");
+		
+		user = UtilisateurManager.getInstance().selectByPseudo(pseudo);
+		if(user == null) {
+			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
+		}else {
+			erreur = "Ce pseudo existe déjà";
+			request.setAttribute("erreur", erreur);
+			doGet(request,response);
+		}
 	}
 
 }
