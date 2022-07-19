@@ -76,9 +76,12 @@ public class Utilisateur {
 			
 		}
 		
+		
 		//GETTER/SETTER
 		
 		
+		
+
 		/**
 		 * @return the no_utilisateur
 		 */
