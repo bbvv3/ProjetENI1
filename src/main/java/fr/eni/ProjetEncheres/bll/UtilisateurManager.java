@@ -22,6 +22,16 @@ public class UtilisateurManager {
 		DAOFactory.getUtilisateurDAO().insert(utilisateur);
 	}
 	
+	public Utilisateur selectById(int id) {
+		
+		return DAOFactory.getUtilisateurDAO().selectById(id);
+		
+	}
+	
+	
+	
+	
+	
 	public boolean isValid() {
 		return false;
 	}

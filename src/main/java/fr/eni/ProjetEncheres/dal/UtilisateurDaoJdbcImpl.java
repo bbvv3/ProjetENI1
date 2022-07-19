@@ -13,17 +13,37 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	
 	private static final String INSERT = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
 			+" VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-
+	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
+	
+		
+	
+	
 	@Override
 	public List<Utilisateur> selectAll() {
+		
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Utilisateur selectById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Utilisateur utilisateur = new Utilisateur();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pStmt = cnx.prepareStatement(SELECT_BY_ID);
+			pStmt.setInt(1, id);
+			ResultSet rs = pStmt.executeQuery();
+			if(rs.next()){ 
+			utilisateur = new Utilisateur(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur"));
+			}
+			
+			
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return utilisateur;
+		
+	
 	}
 
 	@Override
