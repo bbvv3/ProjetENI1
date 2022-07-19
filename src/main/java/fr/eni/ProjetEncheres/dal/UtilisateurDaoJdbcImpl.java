@@ -14,7 +14,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	private static final String INSERT = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
 			+" VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
-	
+	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 		
 	
 	
@@ -80,7 +80,24 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	@Override
 	public void update(Utilisateur value) {
 		// TODO Auto-generated method stub
+			
+	}
+
+	@Override
+	public Utilisateur selectByPseudo(String pseudo) {
+		 Utilisateur utilisateur = new Utilisateur();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pStmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+			pStmt.setString(1,pseudo);
+			ResultSet rs = pStmt.executeQuery();
+			if(rs.next()) {
+				utilisateur =new Utilisateur(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur")); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+		return utilisateur;
 	}
 
 	

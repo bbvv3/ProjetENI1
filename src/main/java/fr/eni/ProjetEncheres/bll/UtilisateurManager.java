@@ -29,7 +29,9 @@ public class UtilisateurManager {
 	}
 	
 	
-	
+	public Utilisateur selectByPseudo (String pseudo) {
+		return DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+	}
 	
 	
 	public boolean isValid() {

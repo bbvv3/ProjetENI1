@@ -13,7 +13,7 @@
 	</header>
 
 			
-	<form action="<%request.getContextPath()%>" method=post>
+	<form action="<%request.getContextPath();%>/Connexion" method=post>
 		<label for="identifiant">Identifiant* :</label>
 		<input type="text" id="identifiant" name="identifiant" size="30" required/><br>
 				

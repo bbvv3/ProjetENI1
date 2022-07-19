@@ -26,6 +26,7 @@ public class Utilisateur {
 		 */
 		public Utilisateur() {
 		}
+		
 		/**
 		 * @param pseudo
 		 * @param nom
@@ -52,6 +53,27 @@ public class Utilisateur {
 			this.mot_de_passe = mot_de_passe;
 			this.credit = credit;
 			this.administrateur = administrateur;
+		}
+		
+		/**
+		 * @param no_utilisateur
+		 * @param pseudo
+		 * @param nom
+		 * @param prenom
+		 * @param email
+		 * @param telephone
+		 * @param rue
+		 * @param code_postal
+		 * @param villes
+		 * @param mot_de_passe
+		 * @param credit
+		 * @param administrateur
+		 */
+		public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur) {
+			this(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur);
+			this.no_utilisateur = no_utilisateur;
+			
 		}
 		
 		//GETTER/SETTER
