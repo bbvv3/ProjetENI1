@@ -44,13 +44,13 @@ public class ServletConnexion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String pseudo=null;
-		String mot_de_passe=null;
+		String pseudo;
+		String mot_de_passe;
 		Utilisateur utilisateur;
 		String erreur = null;
 		
-		pseudo = request.getParameter(pseudo);
-		mot_de_passe = request.getParameter(mot_de_passe);
+		pseudo = request.getParameter("pseudo");// parametre dans le name dans la JSP
+		mot_de_passe = request.getParameter("mot_de_passe");
 		
 		utilisateur = UtilisateurManager.getInstance().selectByPseudo(pseudo);
 		
