@@ -17,10 +17,11 @@
 	</div>
 
 			
-	<form action="${pageContext.servletContext.contextPath}/Connexion" method=post>
+	<form action="${pageContext.servletContext.contextPath}/Connexion" method="post">
 		<label for="identifiant">Identifiant :</label>
-		<input type="text" id="identifiant" name="identifiant" size="30" required/><br>
-				
+		<input type="text" id="identifiant" name="pseudo" size="30" required/><br>
+		<!-- name = parametre envoyé a la servlet -->	
+			
 		<label for="mot_de_passe">Mot de passe :</label>
 		<input type="password" id="mot_de_passe" name="mot_de_passe" size="20" required/><br>
 				
