@@ -27,4 +27,18 @@
 	    <servlet-name>Connexion</servlet-name>
 	    <url-pattern>/Connexion</url-pattern>
   	</servlet-mapping>
+  	
+  		<servlet>
+    <description></description>
+    <display-name>Acceuil</display-name>
+	    <servlet-name>Acceuil</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletAcceuil</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Acceuil</servlet-name>
+	    <url-pattern>/Acceuil</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	
 </web-app>
