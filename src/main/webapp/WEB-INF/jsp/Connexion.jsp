@@ -11,13 +11,17 @@
 	<header>
 		<h1>Eni-Enchères</h1>
 	</header>
+	
+	<div>
+		<p> ${erreur } </p>
+	</div>
 
 			
-	<form action="<%request.getContextPath();%>/Connexion" method=post>
-		<label for="identifiant">Identifiant* :</label>
+	<form action="${pageContext.servletContext.contextPath}/Connexion" method=post>
+		<label for="identifiant">Identifiant :</label>
 		<input type="text" id="identifiant" name="identifiant" size="30" required/><br>
 				
-		<label for="mot_de_passe">Mot de passe* :</label>
+		<label for="mot_de_passe">Mot de passe :</label>
 		<input type="password" id="mot_de_passe" name="mot_de_passe" size="20" required/><br>
 				
 		<input type="submit" value="Connexion"/>

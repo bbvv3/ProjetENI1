@@ -2,16 +2,19 @@ package fr.eni.ProjetEncheres.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ServletConnexion
- */
+import fr.eni.ProjetEncheres.bll.UtilisateurManager;
+import fr.eni.ProjetEncheres.bo.Utilisateur;
+
+
 
 public class ServletConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,7 +24,18 @@ public class ServletConnexion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp");
+		String url;
+		
+		
+		HttpSession session = request.getSession();
+			if(session.getAttribute("utilisateur")!=null) {
+				url="/Acceuil";
+			}else {
+				url="/WEB-INF/jsp/Connexion.jsp";
+				
+			}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
@@ -30,7 +44,34 @@ public class ServletConnexion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String pseudo=null;
+		String mot_de_passe=null;
+		Utilisateur utilisateur;
+		String erreur = null;
+		
+		pseudo = request.getParameter(pseudo);
+		mot_de_passe = request.getParameter(mot_de_passe);
+		
+		utilisateur = UtilisateurManager.getInstance().selectByPseudo(pseudo);
+		
+		if(utilisateur != null) {
+			if(mot_de_passe == utilisateur.getMot_de_passe()){
+				HttpSession session = request.getSession();
+				 session.setAttribute("utilisateur", utilisateur);
+				
+			}else {
+			//mot de passe
+			erreur = "Mot de passe incorrect";
+			}
+		}else{
+			//pseudo
+			erreur = "Pseudo invalide";
+			
+		}
+		request.setAttribute("erreur", erreur);
 		doGet(request, response);
+		
 	}
-
+	
+	
 }
