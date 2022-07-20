@@ -88,7 +88,7 @@ public class ServletInscription extends HttpServlet {
 		if(pseudoValide && emailValide && mdpValide){
 			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
 			System.out.println("insertion validée");
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Connexion");
 			rd.forward(request, response);
 		}else {
 			request.setAttribute("erreur", erreur);
