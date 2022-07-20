@@ -34,10 +34,14 @@ public class ServletInscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe;
-		Utilisateur user,user2 = null;
+		String pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation;
+		Boolean mdpValide = false;
+		Boolean pseudoValide = false;
+		Boolean emailValide = false;
+		Utilisateur user,user2;
 		String erreur = "";
 		
+		//recuperation des valeurs du formulaire
 		pseudo = request.getParameter("pseudo");
 		nom = request.getParameter("nom");
 		prenom = request.getParameter("prenom");
@@ -47,22 +51,50 @@ public class ServletInscription extends HttpServlet {
 		code_postal = request.getParameter("codePostal");
 		ville = request.getParameter("ville");
 		mot_de_passe = request.getParameter("mdp");
+		confirmation = request.getParameter("mdp2");
 		
-		
+		//cherche de l'existence du pseudo et de l'email dans la BDD
 		user = UtilisateurManager.getInstance().selectByPseudo(pseudo);
 		user2 = UtilisateurManager.getInstance().selectByEmail(email);
 		
+		//test si le pseudo est valide
 		if(user != null) {
 			erreur = "Ce pseudo existe déjà";
-			request.setAttribute("erreur", erreur);
-		}else if(user2 != null){
-			erreur = "Cet email n'existe pas";
-			request.setAttribute("erreur", erreur);
 		}else {
+			pseudoValide = true;
+		}
+		
+		//test si l'email est valide
+		if(user2 != null){
+			if(!erreur.equals("")) {
+				erreur += " / ";
+			}
+			erreur += "Cet email existe déjà";
+		}else {
+			emailValide = true;
+		}
+		
+		//test si les mot de passes sont identiques est valide
+		if(!mot_de_passe.equals(confirmation)){
+			if(!erreur.equals("")) {
+				erreur += " / ";
+			}
+			erreur += "Les deux mots de passe ne sont pas identiques";
+		}else{
+			mdpValide = true;
+		}
+		
+		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
+		if(pseudoValide && emailValide && mdpValide){
 			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
 			System.out.println("insertion validée");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+			rd.forward(request, response);
+		}else {
+			request.setAttribute("erreur", erreur);
+			doGet(request,response);
 		}
-		doGet(request,response);
+		
 	}
 
 }
