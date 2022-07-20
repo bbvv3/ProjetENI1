@@ -53,8 +53,9 @@ public class ServletConnexion extends HttpServlet {
 		mot_de_passe = request.getParameter("mot_de_passe");
 		
 		utilisateur = UtilisateurManager.getInstance().selectByPseudo(pseudo);
-		
+		System.out.println(utilisateur);
 		if(utilisateur != null) {
+		
 			if(mot_de_passe == utilisateur.getMot_de_passe()){
 				HttpSession session = request.getSession();
 				 session.setAttribute("utilisateur", utilisateur);
@@ -65,7 +66,7 @@ public class ServletConnexion extends HttpServlet {
 			}
 		}else{
 			//pseudo
-			erreur = "Pseudo invalide";
+			erreur = "Pseudo inconnu";
 			
 		}
 		request.setAttribute("erreur", erreur);
