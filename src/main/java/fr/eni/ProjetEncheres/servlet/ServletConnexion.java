@@ -56,7 +56,7 @@ public class ServletConnexion extends HttpServlet {
 		System.out.println(utilisateur);
 		if(utilisateur != null) {
 		
-			if(mot_de_passe == utilisateur.getMot_de_passe()){
+			if(mot_de_passe.equals(utilisateur.getMot_de_passe())){
 				HttpSession session = request.getSession();
 				 session.setAttribute("utilisateur", utilisateur);
 				
