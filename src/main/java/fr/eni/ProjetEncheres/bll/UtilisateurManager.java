@@ -28,12 +28,14 @@ public class UtilisateurManager {
 		
 	}
 	
-	
 	public Utilisateur selectByPseudo (String pseudo) {
 		
 		return DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
 	}
 	
+	public Utilisateur selectByEmail(String email) {
+		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
+	}
 	
 	public boolean isValid() {
 		return false;

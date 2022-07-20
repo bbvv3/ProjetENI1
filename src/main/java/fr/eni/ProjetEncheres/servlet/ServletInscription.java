@@ -34,17 +34,9 @@ public class ServletInscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String pseudo;
-		String nom;
-		String prenom;
-		String email;
-		String telephone;
-		String rue;
-		String code_postal;
-		String ville;
-		String mot_de_passe;
-		Utilisateur user = null;
-		String erreur = null;
+		String pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe;
+		Utilisateur user,user2 = null;
+		String erreur = "";
 		
 		pseudo = request.getParameter("pseudo");
 		nom = request.getParameter("nom");
@@ -56,14 +48,21 @@ public class ServletInscription extends HttpServlet {
 		ville = request.getParameter("ville");
 		mot_de_passe = request.getParameter("mdp");
 		
+		
 		user = UtilisateurManager.getInstance().selectByPseudo(pseudo);
-		if(user == null) {
-			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
-		}else {
+		user2 = UtilisateurManager.getInstance().selectByEmail(email);
+		
+		if(user != null) {
 			erreur = "Ce pseudo existe déjà";
 			request.setAttribute("erreur", erreur);
-			doGet(request,response);
+		}else if(user2 != null){
+			erreur = "Cet email n'existe pas";
+			request.setAttribute("erreur", erreur);
+		}else {
+			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
+			System.out.println("insertion validée");
 		}
+		doGet(request,response);
 	}
 
 }
