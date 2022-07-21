@@ -2,7 +2,7 @@ package fr.eni.ProjetEncheres.bo;
 
 public class Utilisateur {
 
-	
+		//ATTRIBUTS
 		
 		private int no_utilisateur;
 		private String pseudo;
@@ -74,6 +74,17 @@ public class Utilisateur {
 			this(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur);
 			this.no_utilisateur = no_utilisateur;
 			
+		}
+		
+		
+		//AUTRES METHODES
+		
+		@Override
+		public String toString() {
+			return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+					+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
+					+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
+					+ ", administrateur=" + administrateur + "]";
 		}
 		
 		
@@ -227,15 +238,7 @@ public class Utilisateur {
 			this.administrateur = administrateur;
 		}
 		
-		//toString
-		
-		@Override
-		public String toString() {
-			return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-					+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
-					+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
-					+ ", administrateur=" + administrateur + "]";
-		}
+	
 		
 		
 		

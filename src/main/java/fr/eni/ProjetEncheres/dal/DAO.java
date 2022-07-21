@@ -1,5 +1,6 @@
 package fr.eni.ProjetEncheres.dal;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface DAO<T>{
@@ -8,7 +9,7 @@ public interface DAO<T>{
 	
 	T selectById(int id);
 	
-	void insert(T value);
+	void insert(T value) throws SQLException;
 	
 	void delete(int id);
 	
