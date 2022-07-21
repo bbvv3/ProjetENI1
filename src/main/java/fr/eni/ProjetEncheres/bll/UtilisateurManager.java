@@ -1,7 +1,5 @@
 package fr.eni.ProjetEncheres.bll;
 
-import java.sql.SQLException;
-
 import fr.eni.ProjetEncheres.bo.Utilisateur;
 import fr.eni.ProjetEncheres.dal.DAOFactory;
 

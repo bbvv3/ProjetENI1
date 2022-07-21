@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ProjetEncheres.bll.UtilisateurManager;
-import fr.eni.ProjetEncheres.bo.Utilisateur;
-
 
 /**
  * Servlet implementation class ServletInscription
@@ -38,7 +36,6 @@ public class ServletInscription extends HttpServlet {
 		Boolean mdpValide = false;
 		Boolean pseudoValide = false;
 		Boolean emailValide = false;
-		Utilisateur user,user2;
 		String erreur = "";
 		
 		//recuperation des valeurs du formulaire
@@ -53,9 +50,6 @@ public class ServletInscription extends HttpServlet {
 		mot_de_passe = request.getParameter("mdp");
 		confirmation = request.getParameter("mdp2");
 		
-		//cherche de l'existence du pseudo et de l'email dans la BDD
-		user = UtilisateurManager.getInstance().selectByPseudo(pseudo);
-		user2 = UtilisateurManager.getInstance().selectByEmail(email);
 				
 		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
 		if(pseudoValide && emailValide && mdpValide){
