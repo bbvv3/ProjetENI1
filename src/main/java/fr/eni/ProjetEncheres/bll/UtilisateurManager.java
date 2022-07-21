@@ -19,7 +19,7 @@ public class UtilisateurManager {
 		return instance;
 	}
 	
-	public void insert(String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mot_de_passe) throws SQLException {
+	public void insert(String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mot_de_passe) {
 		//TODO verification des données
 		Utilisateur utilisateur = new Utilisateur(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,0,false);
 		DAOFactory.getUtilisateurDAO().insert(utilisateur);

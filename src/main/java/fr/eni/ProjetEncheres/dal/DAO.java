@@ -9,7 +9,7 @@ public interface DAO<T>{
 	
 	T selectById(int id);
 	
-	void insert(T value) throws SQLException;
+	void insert(T value);
 	
 	void delete(int id);
 	

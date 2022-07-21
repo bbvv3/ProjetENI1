@@ -48,9 +48,8 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	}
 
 	@Override
-	public void insert(Utilisateur utilisateur) throws SQLException {
-		Connection cnx = ConnectionProvider.getConnection();
-		try{
+	public void insert(Utilisateur utilisateur){
+		try(Connection cnx = ConnectionProvider.getConnection()){
 			PreparedStatement pStmt = cnx.prepareStatement(INSERT);
 			pStmt.setString(1, utilisateur.getPseudo());
 			pStmt.setString(2, utilisateur.getNom());
