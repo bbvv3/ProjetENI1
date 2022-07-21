@@ -13,6 +13,8 @@ public interface ArticleDAO extends DAO<Article> {
 	
 	
 	 List<Article> selectByMotCle (String mot_cle);
+	 
+	 //SELECT * FROM ARTICLES WHERE nom = ?;
 
 	 List<Article> selectByCategorie(Categorie categorie);
 	 

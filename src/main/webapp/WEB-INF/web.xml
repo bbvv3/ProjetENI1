@@ -39,6 +39,16 @@
 	    <url-pattern>/Acceuil</url-pattern>
   	</servlet-mapping>
   	
+  	<servlet>
+    <description></description>
+    <display-name>Connexion_Aurore</display-name>
+	    <servlet-name>Connexion_Aurore</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletTestPoolConnexion</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Connexion_Aurore</servlet-name>
+	    <url-pattern>/Connexion_Aurore</url-pattern>
+  	</servlet-mapping>
   	
   	
 </web-app>

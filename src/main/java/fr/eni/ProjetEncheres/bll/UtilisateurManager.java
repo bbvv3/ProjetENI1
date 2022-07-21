@@ -1,5 +1,7 @@
 package fr.eni.ProjetEncheres.bll;
 
+import java.sql.SQLException;
+
 import fr.eni.ProjetEncheres.bo.Utilisateur;
 import fr.eni.ProjetEncheres.dal.DAOFactory;
 
@@ -20,6 +22,7 @@ public class UtilisateurManager {
 	}
 	
 	public void insert(String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mot_de_passe) {
+		//TODO verification des données
 		Utilisateur utilisateur = new Utilisateur(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,0,false);
 		DAOFactory.getUtilisateurDAO().insert(utilisateur);
 	}
@@ -39,7 +42,4 @@ public class UtilisateurManager {
 		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
 	}
 	
-	public boolean isValid() {
-		return false;
-	}
 }

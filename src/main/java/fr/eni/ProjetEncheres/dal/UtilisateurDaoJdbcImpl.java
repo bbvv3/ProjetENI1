@@ -11,14 +11,13 @@ import fr.eni.ProjetEncheres.bo.Utilisateur;
 
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	
+
 	private static final String INSERT = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
 			+" VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";//nommer les colonnes
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_EMAIL="SELECT * FROM UTILISATEURS WHERE email = ?";
-		
-	
-	
+
 	@Override
 	public List<Utilisateur> selectAll() {
 		
@@ -49,9 +48,9 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	}
 
 	@Override
-	public void insert(Utilisateur utilisateur) {
+	public void insert(Utilisateur utilisateur){
 		try(Connection cnx = ConnectionProvider.getConnection()){
-			PreparedStatement pStmt = cnx.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement pStmt = cnx.prepareStatement(INSERT);
 			pStmt.setString(1, utilisateur.getPseudo());
 			pStmt.setString(2, utilisateur.getNom());
 			pStmt.setString(3, utilisateur.getPrenom());
@@ -64,11 +63,6 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 			pStmt.setInt(10, utilisateur.getCredit());
 			pStmt.setBoolean(11, utilisateur.isAdministrateur());
 			pStmt.executeUpdate();
-			ResultSet rs = pStmt.getGeneratedKeys();
-			if(rs.next()) {
-				int no_utilisateur = rs.getInt(1);
-				utilisateur.setNo_utilisateur(no_utilisateur);
-			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

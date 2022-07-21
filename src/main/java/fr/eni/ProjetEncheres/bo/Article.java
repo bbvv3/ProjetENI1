@@ -1,9 +1,14 @@
 package fr.eni.ProjetEncheres.bo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Article {
+public class Article implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int no_article;
 	private String nom_article;
 	private String description;
@@ -22,6 +27,7 @@ public class Article {
 	 */
 	public Article() {
 	}
+
 
 
 	/**
@@ -46,6 +52,9 @@ public class Article {
 
 
 	
+	
+
+
 	//GETTERS & SETTERS	
 	/**
 	 * @return the no_article
