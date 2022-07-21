@@ -5,9 +5,11 @@ import fr.eni.ProjetEncheres.dal.DAOFactory;
 
 public class UtilisateurManager {
 	
+	//singleton
 	private static UtilisateurManager instance;
 
-	public UtilisateurManager() {
+	
+	private UtilisateurManager() {
 	}
 	
 	public static UtilisateurManager getInstance() {
