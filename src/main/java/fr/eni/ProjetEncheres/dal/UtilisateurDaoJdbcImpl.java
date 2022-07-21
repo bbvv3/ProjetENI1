@@ -28,7 +28,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 
 	@Override
 	public Utilisateur selectById(int id) {
-		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur = null;
 		try(Connection cnx = ConnectionProvider.getConnection()){
 			PreparedStatement pStmt = cnx.prepareStatement(SELECT_BY_ID);
 			pStmt.setInt(1, id);

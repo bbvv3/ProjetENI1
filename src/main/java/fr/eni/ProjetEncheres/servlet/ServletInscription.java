@@ -56,37 +56,14 @@ public class ServletInscription extends HttpServlet {
 		//cherche de l'existence du pseudo et de l'email dans la BDD
 		user = UtilisateurManager.getInstance().selectByPseudo(pseudo);
 		user2 = UtilisateurManager.getInstance().selectByEmail(email);
-		
-		//test si le pseudo est valide
-		if(user != null) {
-			erreur = "Ce pseudo existe déjà";
-		}else {
-			pseudoValide = true;
-		}
-		
-		//test si l'email est valide
-		if(user2 != null){
-			if(!erreur.equals("")) {
-				erreur += " / ";
-			}
-			erreur += "Cet email existe déjà";
-		}else {
-			emailValide = true;
-		}
-		
-		//test si les mot de passes sont identiques est valide
-		if(!mot_de_passe.equals(confirmation)){
-			if(!erreur.equals("")) {
-				erreur += " / ";
-			}
-			erreur += "Les deux mots de passe ne sont pas identiques";
-		}else{
-			mdpValide = true;
-		}
-		
+				
 		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
 		if(pseudoValide && emailValide && mdpValide){
-			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe);
+			try {
+				UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation);
+			} catch (Exception e) {
+				erreur = e.getMessage();
+			}
 			System.out.println("insertion validée");
 			RequestDispatcher rd = request.getRequestDispatcher("/Connexion");
 			rd.forward(request, response);
