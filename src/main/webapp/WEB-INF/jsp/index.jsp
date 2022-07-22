@@ -24,10 +24,10 @@
 	
 	<label for="categorie">Catégorie : </label>
         <select name="article" id="categorie" >
-          	<option value="informatique">Informatique</option>
-            <option value="ameublement">Ameublement</option>
-            <option value="vetement">Vêtement</option>
-            <option value="sport_loisir">Sport et Loisirs</option>
+          	<option value="id">Informatique</option>
+            <option value="id">Ameublement</option>
+            <option value="id">Vêtement</option>
+            <option value="id">Sport et Loisirs</option>
         </select><br>
         
         <input type="search" id="identifiant" name="identifiant" size="30" placeholder="le nom de l'article"/><br>
