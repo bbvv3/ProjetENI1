@@ -22,12 +22,10 @@
 	
 	<form action="<%request.getContextPath();%>/Acceuil" method=post>
 	
-	<label for="categorie">Catégorie : </label>
-        <select name="article" id="categorie" >
-          	<option value="id">Informatique</option>
-            <option value="id">Ameublement</option>
-            <option value="id">Vêtement</option>
-            <option value="id">Sport et Loisirs</option>
+	<label for="idCategorie">Catégorie : </label>
+        <select name="categorie" id="idCategorie" >
+        	<option value="0">Toutes</option>
+        	<c:forEach var="c" items="${categories}"><option value="${c.getNo_categorie()}">${c.getLibelle()}</option></c:forEach>
         </select><br>
         
         <input type="search" id="identifiant" name="identifiant" size="30" placeholder="le nom de l'article"/><br>

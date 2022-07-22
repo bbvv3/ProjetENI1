@@ -23,8 +23,10 @@ public class Categorie implements Serializable {
 		this.libelle = libelle;
 	}
 	
-	
-	
+	public Categorie(int no_categorie, String libelle) {
+		this(libelle);
+		this.no_categorie = no_categorie;
+	}
 	
 	//GETTER/SETTER
 	/**

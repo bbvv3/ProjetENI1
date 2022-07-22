@@ -23,11 +23,14 @@ public class ServletAcceuil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		HttpSession session = request.getSession();
 		String deconnexion = request.getParameter("logout");
 		if(deconnexion == "1") {
 			session.invalidate();
 		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
 	}
