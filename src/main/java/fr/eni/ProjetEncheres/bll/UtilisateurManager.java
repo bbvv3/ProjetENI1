@@ -1,5 +1,8 @@
 package fr.eni.ProjetEncheres.bll;
 
+import javax.servlet.http.HttpSession;
+
+
 import fr.eni.ProjetEncheres.bo.Utilisateur;
 import fr.eni.ProjetEncheres.dal.DAOFactory;
 
@@ -49,9 +52,27 @@ public class UtilisateurManager {
 		
 	}
 	
-	public Utilisateur selectByPseudo (String pseudo) {
-		
+	public Utilisateur selectByPseudo(String pseudo) {
 		return DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+	}
+	
+	
+	
+	public Utilisateur connexion (String pseudo,String mot_de_passe) throws Exception {
+		
+		Utilisateur utilisateur= DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+		
+		
+		if(utilisateur  == null ) {
+			throw new Exception("Pseudo inconnu");
+			
+		} else if( !mot_de_passe.equals(utilisateur.getMot_de_passe()))
+		{
+			
+			throw new Exception("Mot de passe incorrect");
+		}
+		
+	return utilisateur;
 	}
 	
 	public Utilisateur selectByEmail(String email) {
