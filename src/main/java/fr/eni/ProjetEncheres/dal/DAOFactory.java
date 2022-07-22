@@ -7,4 +7,11 @@ public class DAOFactory {
 	}
 	
 	
+	//permet de faire daofactory.getArticleDAO(); 
+	
+	public static ArticleDAO getArticleDAO() {
+		return new ArticleDaoJdbcImpl();
+	}
+	
+	
 }

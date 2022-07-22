@@ -16,7 +16,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 	
 	private static final String SELECT_MOT_CLE = "SELECT * FROM ARTICLES WHERE nom LIKE ?;";
 	private static final String SELECT_CATEGORIE_BY_ID="SELECT * FROM CATEGORIES WHERE no_categorie = ?;";
-	
+	private static final String SELECT_BY_CATEGORIE="SELECT * FROM ARTICLES WHERE no_categorie = ?;";
 	@Override
 	public List<Article> selectAll() {
 		// TODO Auto-generated method stub
@@ -87,9 +87,38 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 	
 
 	@Override
-	public List<Article> selectByCategorie(Categorie categorie) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> selectByCategorie(int identifiant) {
+		List<Article> articles= new ArrayList<Article>();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pStmt = cnx.prepareStatement(SELECT_BY_CATEGORIE);
+			pStmt.setInt(1, identifiant);
+			ResultSet rs = pStmt.executeQuery();
+			while(rs.next()) {
+				//rs.getInt("no_categorie");
+				int id_acheteur = rs.getInt("no_acheteur");//je stocke dans la variable l'identifiant de l'acheteur de l'article
+				int id_vendeur = rs.getInt("no_vendeur");
+				int id_categorie = rs.getInt("no_categorie");
+				
+				//= Utilisateur acheteur = DAOFactory.getUtilisateurDAO().selectById(rs.getInt("no_acheteur"));
+				//supprime la variable id_acheteur
+				Utilisateur acheteur = DAOFactory.getUtilisateurDAO().selectById(id_acheteur);
+				Utilisateur vendeur = DAOFactory.getUtilisateurDAO().selectById(id_vendeur);
+				Categorie categorie = selectCategorieById(id_categorie);
+				
+				Article article = new Article(rs.getString("nom_article"),rs.getString("description"),rs.getDate("date_debut_encheres"),rs.getDate("date_fin-encheres"),rs.getInt("prix_vente"),acheteur,vendeur,categorie);
+				
+				articles.add(article);
+				
+			}
+			
+			} 
+	catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		return articles;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public interface ArticleDAO extends DAO<Article>{
 
 	 List<Article> selectByMotCle(String mot_cle);
 	 
-	 List<Article> selectByCategorie(Categorie categorie);
+	 List<Article> selectByCategorie(int identifiant);
 	
 	//liste d'articles associée a la categorie
 	
@@ -20,4 +20,5 @@ public interface ArticleDAO extends DAO<Article>{
 	 //select Categorie byId-fonction
 	 
 	 Categorie selectCategorieById(int id_categorie );
+	 //
 }
