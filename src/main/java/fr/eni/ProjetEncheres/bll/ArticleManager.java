@@ -14,5 +14,8 @@ public class ArticleManager {
 			}
 			return instance;
 		}
+		
+		
+		
 
 }

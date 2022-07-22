@@ -27,6 +27,8 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	
 	@Override
 	//définition au départ
+	
+	//Retourne un utilisateur associé a l' id donné
 	public Utilisateur selectById(int id) {
 		Utilisateur utilisateur = null;
 		try(Connection cnx = ConnectionProvider.getConnection()){
@@ -42,6 +44,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 			e.printStackTrace();
 		}
 		return utilisateur;
+		
 		
 	
 	}

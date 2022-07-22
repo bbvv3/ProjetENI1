@@ -24,6 +24,8 @@ public class Categorie implements Serializable {
 	}
 	
 	
+	
+	
 	//GETTER/SETTER
 	/**
 	 * @return the libelle

@@ -13,7 +13,11 @@ public interface ArticleDAO extends DAO<Article>{
 	 List<Article> selectByMotCle(String mot_cle);
 	 
 	 List<Article> selectByCategorie(Categorie categorie);
-
+	
 	//liste d'articles associée a la categorie
 	
+	 
+	 //select Categorie byId-fonction
+	 
+	 Categorie selectCategorieById(int id_categorie );
 }
