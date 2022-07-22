@@ -33,9 +33,6 @@ public class ServletInscription extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation;
-		Boolean mdpValide = false;
-		Boolean pseudoValide = false;
-		Boolean emailValide = false;
 		String erreur = "";
 		
 		//recuperation des valeurs du formulaire
@@ -52,19 +49,18 @@ public class ServletInscription extends HttpServlet {
 		
 				
 		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
-		if(pseudoValide && emailValide && mdpValide){
-			try {
-				UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation);
-			} catch (Exception e) {
-				erreur = e.getMessage();
-			}
+		try {
+			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation);
 			System.out.println("insertion validée");
 			RequestDispatcher rd = request.getRequestDispatcher("/Connexion");
 			rd.forward(request, response);
-		}else {
+		} catch (Exception e) {
+			erreur = e.getMessage();
 			request.setAttribute("erreur", erreur);
 			doGet(request,response);
 		}
+			
+		
 		
 	}
 
