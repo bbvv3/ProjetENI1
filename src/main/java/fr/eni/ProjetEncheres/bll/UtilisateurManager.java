@@ -1,6 +1,6 @@
 package fr.eni.ProjetEncheres.bll;
 
-import javax.servlet.http.HttpSession;
+
 
 
 import fr.eni.ProjetEncheres.bo.Utilisateur;
