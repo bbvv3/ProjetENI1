@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.ProjetEncheres.bll.UtilisateurManager;
 
@@ -23,7 +24,14 @@ public class ServletInscription extends HttpServlet {
 	 * Redirection vers la jsp Inscription.jsp
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp");
+		String url;
+		HttpSession session = request.getSession();
+			if(session.getAttribute("utilisateur")!=null) {
+				url="/Acceuil";
+			}else {
+				url="/WEB-INF/jsp/Inscription.jsp";	
+			}
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
