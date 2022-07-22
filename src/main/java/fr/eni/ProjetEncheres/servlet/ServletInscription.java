@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +13,8 @@ import fr.eni.ProjetEncheres.bll.UtilisateurManager;
 
 /**
  * Servlet implementation class ServletInscription
+ * @author Victor BOISSON
  */
-@WebServlet("/ServletInscription")
 public class ServletInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,6 +36,7 @@ public class ServletInscription extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * recupere des parametres d'inscription puis les envoie à la BLL
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -54,8 +54,7 @@ public class ServletInscription extends HttpServlet {
 		ville = request.getParameter("ville");
 		mot_de_passe = request.getParameter("mdp");
 		confirmation = request.getParameter("mdp2");
-		
-				
+			
 		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
 		try {
 			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation);
@@ -67,9 +66,6 @@ public class ServletInscription extends HttpServlet {
 			request.setAttribute("erreur", erreur);
 			doGet(request,response);
 		}
-			
-		
 		
 	}
-
 }
