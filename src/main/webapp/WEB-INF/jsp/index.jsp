@@ -1,16 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Liste des enchères</title>
 </head>
 <body>
 		
 	<header>
 		<h1>Eni-Enchères</h1>
-		<a href>S'inscrire - Se connecter</a>
+		<!--<c:if test="${connect}">
+			<p><a href="">S'inscrire</a> - <a href=""> Se connecter</a></p>
+		</c:if>-->
+		
 	</header>
 	
 	

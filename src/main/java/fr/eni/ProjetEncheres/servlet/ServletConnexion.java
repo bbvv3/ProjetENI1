@@ -47,6 +47,7 @@ public class ServletConnexion extends HttpServlet {
 		String pseudo;
 		String mot_de_passe;
 		Utilisateur utilisateur;
+		//Boolean connect = false;
 		String erreur = null;
 		
 		pseudo = request.getParameter("pseudo");// parametre dans le name dans la JSP
@@ -69,9 +70,9 @@ public class ServletConnexion extends HttpServlet {
 			erreur = "Pseudo inconnu";
 			
 		}
+		// session.setAttribute("connect", connect);
 		request.setAttribute("erreur", erreur);
 		doGet(request, response);
-		
 	}
 	
 	
