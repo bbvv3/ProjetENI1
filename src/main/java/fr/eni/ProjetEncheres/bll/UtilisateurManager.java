@@ -56,8 +56,6 @@ public class UtilisateurManager {
 		return DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
 	}
 	
-	
-	
 	public Utilisateur connexion (String pseudo,String mot_de_passe) throws Exception {
 		
 		Utilisateur utilisateur= DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);

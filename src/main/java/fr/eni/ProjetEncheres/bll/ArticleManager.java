@@ -27,5 +27,7 @@ public class ArticleManager {
 			return DAOFactory.getArticleDAO().selectByCategorie(identifiant);
 		}
 		
-		
+		public List<Article> selectAll(){
+			return DAOFactory.getArticleDAO().selectAll();
+		}
 }

@@ -100,9 +100,6 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 		}
 	}
 
-		
-			
-	
 
 	@Override
 	public Utilisateur selectByPseudo(String pseudo) {

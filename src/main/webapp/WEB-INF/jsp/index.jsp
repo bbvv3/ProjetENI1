@@ -15,7 +15,7 @@
 			</c:if>
 			<c:if test="${login != null}">
 				<ul>
-					<li><a href="${pageContext.servletContext.contextPath}/VendreArticle	">Vendre un article</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/VendreArticle">Vendre un article</a></li>
 					<li><a href="${pageContext.servletContext.contextPath}/Profil">Mon profil</a></li>
 					<li><a href="${pageContext.servletContext.contextPath}/Accueil?deconnexion=1">Deconnexion</a></li>
 				</ul>

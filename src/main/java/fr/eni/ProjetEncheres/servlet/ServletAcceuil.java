@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.ProjetEncheres.bll.ArticleManager;
 import fr.eni.ProjetEncheres.bll.CategorieManager;
+import fr.eni.ProjetEncheres.bo.Article;
 import fr.eni.ProjetEncheres.bo.Categorie;
 
 /**
@@ -33,9 +35,13 @@ public class ServletAcceuil extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String deconnexion = request.getParameter("logout");
-		if(deconnexion == "1") {
-			session.invalidate();
+		if(deconnexion != null && deconnexion.equals("1")){
+			session.setAttribute("login", null);
+			session.setAttribute("credit", null);
 		}
+		
+		List<Article> articles = ArticleManager.getInstance().selectAll();
+		request.setAttribute("articles", articles);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
