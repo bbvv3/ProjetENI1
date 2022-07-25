@@ -58,10 +58,9 @@ public class UtilisateurManager {
 	
 	
 	
-	public String connexion (String pseudo,String mot_de_passe) throws Exception {
+	public Utilisateur connexion (String pseudo,String mot_de_passe) throws Exception {
 		
 		Utilisateur utilisateur= DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
-		String login = null; 
 		
 		if(utilisateur  == null ) {
 			throw new Exception("Pseudo inconnu");
@@ -69,10 +68,8 @@ public class UtilisateurManager {
 		} else if( !mot_de_passe.equals(utilisateur.getMot_de_passe()))
 		{
 			throw new Exception("Mot de passe incorrect");
-		}else {
-			login = utilisateur.getPseudo();
 		}
-	return login;
+	return utilisateur;
 	}
 	
 	public Utilisateur selectByEmail(String email) {
