@@ -10,9 +10,9 @@
 		
 	<header>
 		<h1>Eni-Enchères</h1>
-		<!--<c:if test="${connect}">
-			<p><a href="">S'inscrire</a> - <a href=""> Se connecter</a></p>
-		</c:if>-->
+		<c:if test="${utilisateur == null}">
+			<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
+		</c:if>
 		
 	</header>
 	
@@ -31,11 +31,17 @@
         <input type="search" id="identifiant" name="identifiant" size="30" placeholder="le nom de l'article"/><br>
         
         <input type="submit" value="Rechercher"/><br>
-        
-     
-  
   </form>	
-	
+	<c:forEach var="a" items="${articles}">
+		<div>
+			<img src="" alt="image de l'article">
+			<h3></h3>
+			<p>Prix : ${a.getPrix_vente()} points</p>
+			<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
+			<p>Retrait : ?</p>
+			<p>Vendeur : ${a.getVendeur()} </p>
+		</div>
+	</c:forEach>
 	
 	
 		

@@ -27,7 +27,7 @@ public class ServletConnexion extends HttpServlet {
 		String url;
 		
 		HttpSession session = request.getSession();
-			if(session.getAttribute("utilisateur")!=null) {
+			if(session.getAttribute("login")!=null) {
 				url="/Acceuil";
 			}else {
 				url="/WEB-INF/jsp/Connexion.jsp";
@@ -56,13 +56,13 @@ public class ServletConnexion extends HttpServlet {
 			utilisateur = UtilisateurManager.getInstance().connexion(pseudo,mot_de_passe);
 			System.out.println(utilisateur);
 			HttpSession session = request.getSession();
-			session.setAttribute("utilisateur", utilisateur.getPseudo());
+			session.setAttribute("login", utilisateur.getPseudo());
 			session.setAttribute("credit", utilisateur.getCredit());
 		
 		}catch (Exception e){
 		request.setAttribute("erreur", erreur);
-		doGet(request, response);
 		}
+		doGet(request, response);
 	}
 	
 	

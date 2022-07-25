@@ -25,7 +25,7 @@ public class ServletInscription extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url;
 		HttpSession session = request.getSession();
-			if(session.getAttribute("utilisateur")!=null) {
+			if(session.getAttribute("login")!=null) {
 				url="/Acceuil";
 			}else {
 				url="/WEB-INF/jsp/Inscription.jsp";	
