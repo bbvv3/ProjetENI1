@@ -74,10 +74,36 @@ public class UtilisateurManager {
 		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
 	}
 	
-	public void update(Utilisateur utilisateur) {
-		 DAOFactory.getUtilisateurDAO().update(utilisateur);
+	public void update(int id,String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mot_de_passe,String conf_mot_de_passe) throws Exception {
+		 Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
+		 Utilisateur user = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+		 
+		 	//nouveau pseudo != ancien pseudo
+		 if( pseudo!=utilisateur.getPseudo() && user!= null ) {
+			 throw new Exception("ce pseudo existe déjà");}
+		
+		 utilisateur.setPseudo(pseudo);
+		 utilisateur.setNom(nom);
+		 utilisateur.setPrenom(prenom);
+		 
+		 user = DAOFactory.getUtilisateurDAO().selectByEmail(email);
+		 if (email!=utilisateur.getEmail() && user!=null ) {
+			 throw new Exception("Cet email existe déjà");
+		 }
+		 utilisateur.setEmail(email);
+		 utilisateur.setTelephone(telephone);
+		 utilisateur.setRue(rue);
+		 utilisateur.setCode_postal(code_postal);
+		 utilisateur.setVille(ville);
+		 
+		 if(!mot_de_passe.equals(conf_mot_de_passe)) {
+			 throw new Exception("Les deux mots de passe ne sont pas identiques");
+		 }
+		utilisateur.setMot_de_passe(mot_de_passe);
+		 
+		DAOFactory.getUtilisateurDAO().update(utilisateur);
+		 
 	}
-	
 	
 	
 }

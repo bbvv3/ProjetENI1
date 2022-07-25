@@ -34,14 +34,7 @@ public class ServletProfil extends HttpServlet {
 		//si le pseudo est différent de null ,on selectionne son pseudo grâce a la methode selectBySpeudo et l'on accéde a la page Acceuil
 		if(pseudo != null) {
 		utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
-		
-		//on crée un tableau de caracteres pour récuperer chaque lettres du  mot de passe
-		char[] motDePasse = utilisateur.getMot_de_passe().toCharArray();
-		for(char lettre : motDePasse) {//on crée une boucle pour remplir la tableau de lettre
-			lettre = '*';//chaque lettre  a pour valeur *
-		}
-		utilisateur.setMot_de_passe(String.valueOf(motDePasse));//on envoie le mot de passe modifié a l'utilisateur
-		
+	
 		//attribut utilisateur envoyée dqns la JSP
 		request.setAttribute("utilisateur", utilisateur);
 		}

@@ -16,7 +16,7 @@
 	
 	<form action="${pageContext.servletContext.contextPath}/Modifier" method="post">
 			<div>
-				<label for="id_pseudo">Pseudo : </label><input type="text" id="id_pseudo" name="pseudo"/>
+				<label for="id_pseudo">Pseudo : </label><input type="text" id="id_pseudo" name="pseudo" value="${utilisateur.getPseudo()}"/>
 			</div>
 			<div>
 				<label for="id_nom">Nom : </label><input type="text" id="id_nom" name="nom" />
@@ -39,7 +39,15 @@
 			<div>
 				<label for="id_ville">Ville : </label><input type="text" id="id_ville" name="ville"/>
 			</div>
-			
+			<div>
+				<label for="id_motDePasse">Mot de passe : </label><input type="password" id="id_motDePasse" name="motDePasse"/>
+			</div>
+			<div>
+				<label for="id_conf_motDePasse">Confirmation du mot de passe : </label><input type="password" id="id_conf_motDePasse"" name="conf_motDePasse"/>
+			</div>
+			<div>
+				<label for="id_credit">Crédit: </label><input type="text" id="id_credit" name="credit"/>
+			</div>
 			<div>
 				<input type="submit" value="Modifier"/>
 			</div>

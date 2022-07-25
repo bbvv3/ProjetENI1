@@ -62,23 +62,7 @@
 			 	</p>
 			</div>
 			
-			<div>
-				<p>
-				Mot de passe : ${utilisateur.getMot_de_passe()}
-				</p>
-			</div>
 			
-			<div>
-				<p>
-				Confirmation : ${utilisateur.getMot_de_passe()}
-				</p>
-			</div>
-			
-			<div>
-				<p>
-				Crèdit : ${utilisateur.getCredit()}
-				</p>
-			</div>
 				
 			<div>
 				<input type="submit" value="Enregistrer"/>
