@@ -16,66 +16,67 @@
 	
 			<div>
 				<p>
-				Pseudo : 
+			<!-- attribut récupérer de l'utilsateur avec le setAttribut de la servlet -->
+				Pseudo : ${utilisateur.getPseudo()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Nom : 
+				Nom : ${utilisateur.getNom()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Prenom :
+				Prenom : ${utilisateur.getPrenom()}
 				</p>
 			</div>
 			<div>
 				<p>
-				Email :
-				</p>
-			</div>
-			
-			<div>
-				<p>
-				Téléphone : 
+				Email : ${utilisateur.getEmail()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Rue : 
+				Téléphone : ${utilisateur.getTelephone()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Code postal :
+				Rue : ${utilisateur.getRue()}
+				</p>
+			</div>
+			
+			<div>
+				<p>
+				Code postal : ${utilisateur.getCode_postal()}
 				</p> 
 			</div>
 			
 			<div>
 				<p>
-				Ville :
+				Ville : ${utilisateur.getVille()}
 			 	</p>
 			</div>
 			
 			<div>
 				<p>
-				Mot de passe : 
+				Mot de passe : ${utilisateur.getMot_de_passe()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Confirmation :
+				Confirmation : ${utilisateur.getMot_de_passe()}
 				</p>
 			</div>
 			
 			<div>
 				<p>
-				Crèdit
+				Crèdit : ${utilisateur.getCredit()}
 				</p>
 			</div>
 				

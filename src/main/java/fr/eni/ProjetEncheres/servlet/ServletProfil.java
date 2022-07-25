@@ -29,13 +29,23 @@ public class ServletProfil extends HttpServlet {
 		
 		String url = "/WEB-INF/jsp/Profil.jsp";
 		Utilisateur utilisateur ;
-		HttpSession session = request.getSession();
-		String pseudo = (String)session.getAttribute("login");
+		HttpSession session = request.getSession();//on crée une session
+		String pseudo = (String)session.getAttribute("login");//on récupére le pseudo de l'utilisateur dans la session
+		//si le pseudo est différent de null ,on selectionne son pseudo grâce a la methode selectBySpeudo et l'on accéde a la page Acceuil
 		if(pseudo != null) {
 		utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+		
+		//on crée un tableau de caracteres pour récuperer chaque lettres du  mot de passe
+		char[] motDePasse = utilisateur.getMot_de_passe().toCharArray();
+		for(char lettre : motDePasse) {//on crée une boucle pour remplir la tableau de lettre
+			lettre = '*';//chaque lettre  a pour valeur *
+		}
+		utilisateur.setMot_de_passe(String.valueOf(motDePasse));//on envoie le mot de passe modifié a l'utilisateur
+		
+		//attribut utilisateur envoyée dqns la JSP
 		request.setAttribute("utilisateur", utilisateur);
 		}
-		else
+		else//si le pseudo est inexistant,on est renvoyé dans la servlet connexion
 		{
 		 url = "/Connexion";
 		}

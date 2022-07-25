@@ -27,7 +27,7 @@ public class ServletConnexion extends HttpServlet {
 		String url;
 		
 		HttpSession session = request.getSession();
-			if(session.getAttribute("login")!=null) {
+			if(session.getAttribute("login")!=null) { 
 				url="/Acceuil";
 			}else {
 				url="/WEB-INF/jsp/Connexion.jsp";

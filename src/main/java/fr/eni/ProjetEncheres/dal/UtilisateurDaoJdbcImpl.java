@@ -16,7 +16,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";//nommer les colonnes
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_EMAIL="SELECT * FROM UTILISATEURS WHERE email = ?";
-	
+	private static final String UPDATE="UPDATE UTILISATEURS SET (pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?) WHERE no_utilisateur = ?;";
 
 	@Override
 	public List<Utilisateur> selectAll() {
@@ -78,10 +78,31 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	}
 
 	@Override
-	public void update(Utilisateur value) {
-		// TODO Auto-generated method stub
+	public void update(Utilisateur utilisateur) {
+		
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pStmt = cnx.prepareStatement(UPDATE);
+			pStmt.setString(1, utilisateur.getPseudo());
+			pStmt.setString(2, utilisateur.getNom());
+			pStmt.setString(3, utilisateur.getPrenom());
+			pStmt.setString(4, utilisateur.getEmail());
+			pStmt.setString(5, utilisateur.getTelephone());
+			pStmt.setString(6, utilisateur.getRue());
+			pStmt.setString(7, utilisateur.getCode_postal());
+			pStmt.setString(8, utilisateur.getVille());
+			pStmt.setString(9, utilisateur.getMot_de_passe());
+			pStmt.executeUpdate();
 			
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();	
+		}
 	}
+
+		
+			
+	
 
 	@Override
 	public Utilisateur selectByPseudo(String pseudo) {
@@ -116,6 +137,9 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 		return utilisateur;
 	}
 
+
+	
+	
 
 	
 	

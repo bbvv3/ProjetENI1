@@ -76,7 +76,9 @@ public class UtilisateurManager {
 		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
 	}
 	
-	
+	public void update(Utilisateur utilisateur) {
+		 DAOFactory.getUtilisateurDAO().update(utilisateur);
+	}
 	
 	
 	
