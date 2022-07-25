@@ -10,7 +10,7 @@
 		
 	<header>
 		<h1>Eni-Enchères</h1>
-		<c:if test="${utilisateur == null}">
+		<c:if test="${login == null}">
 			<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
 		</c:if>
 		
