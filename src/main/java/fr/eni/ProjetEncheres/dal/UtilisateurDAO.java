@@ -9,4 +9,5 @@ public interface UtilisateurDAO extends DAO<Utilisateur> {
 	
 	public Utilisateur selectByEmail(String email);
 
+	
 }

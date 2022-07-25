@@ -16,6 +16,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";//nommer les colonnes
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_EMAIL="SELECT * FROM UTILISATEURS WHERE email = ?";
+	
 
 	@Override
 	public List<Utilisateur> selectAll() {
@@ -115,5 +116,10 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 		return utilisateur;
 	}
 
+
+	
+	
+	
+	
 	
 }

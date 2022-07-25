@@ -50,5 +50,26 @@
 	    <url-pattern>/Connexion_Aurore</url-pattern>
   	</servlet-mapping>
   	
+  	<servlet>
+    <description></description>
+    <display-name>Modifier</display-name>
+	    <servlet-name>Modifier</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletModifier</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Modifier</servlet-name>
+	    <url-pattern>/Modifier</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    <description></description>
+    <display-name>Profil</display-name>
+	    <servlet-name>Profil</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletProfil</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Profil</servlet-name>
+	    <url-pattern>/Profil</url-pattern>
+  	</servlet-mapping>
   	
 </web-app>

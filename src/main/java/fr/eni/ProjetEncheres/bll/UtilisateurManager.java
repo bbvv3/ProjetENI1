@@ -76,4 +76,8 @@ public class UtilisateurManager {
 		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
 	}
 	
+	
+	
+	
+	
 }

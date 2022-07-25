@@ -86,6 +86,32 @@ public class Utilisateur implements Serializable{
 		}
 		
 		
+		
+		
+		/**
+		 * @param no_utilisateur
+		 * @param pseudo
+		 * @param nom
+		 * @param prenom
+		 * @param email
+		 * @param telephone
+		 * @param rue
+		 * @param code_postal
+		 * @param ville
+		 */
+		public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String code_postal, String ville) {
+			this.no_utilisateur = no_utilisateur;
+			this.pseudo = pseudo;
+			this.nom = nom;
+			this.prenom = prenom;
+			this.email = email;
+			this.telephone = telephone;
+			this.rue = rue;
+			this.code_postal = code_postal;
+			this.ville = ville;
+		}
+
 		//AUTRES METHODES
 		
 		@Override
