@@ -46,7 +46,7 @@ public class ServletConnexion extends HttpServlet {
 		
 		String pseudo;
 		String mot_de_passe;
-		Utilisateur utilisateur;
+		String utilisateur;
 		//Boolean connect = false;
 		String erreur = null;
 		

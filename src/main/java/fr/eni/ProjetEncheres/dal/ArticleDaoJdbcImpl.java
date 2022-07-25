@@ -15,7 +15,6 @@ import fr.eni.ProjetEncheres.bo.Utilisateur;
 public class ArticleDaoJdbcImpl implements ArticleDAO{
 	
 	private static final String SELECT_MOT_CLE = "SELECT * FROM ARTICLES WHERE nom LIKE ?;";
-	private static final String SELECT_CATEGORIE_BY_ID="SELECT * FROM CATEGORIES WHERE no_categorie = ?;";
 	private static final String SELECT_BY_CATEGORIE="SELECT * FROM ARTICLES WHERE no_categorie = ?;";
 	@Override
 	public List<Article> selectAll() {
@@ -68,7 +67,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 				//supprime la variable id_acheteur
 				Utilisateur acheteur = DAOFactory.getUtilisateurDAO().selectById(id_acheteur);
 				Utilisateur vendeur = DAOFactory.getUtilisateurDAO().selectById(id_vendeur);
-				Categorie categorie = selectCategorieById(id_categorie);
+				Categorie categorie = DAOFactory.getCategorieDAO().selectById(id_categorie);
 				
 				Article article = new Article(rs.getString("nom_article"),rs.getString("description"),rs.getDate("date_debut_encheres"),rs.getDate("date_fin-encheres"),rs.getInt("prix_vente"),acheteur,vendeur,categorie);
 				
@@ -78,7 +77,6 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 		} 
 		
 		catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 		}
 		return articles;
@@ -103,7 +101,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 				//supprime la variable id_acheteur
 				Utilisateur acheteur = DAOFactory.getUtilisateurDAO().selectById(id_acheteur);
 				Utilisateur vendeur = DAOFactory.getUtilisateurDAO().selectById(id_vendeur);
-				Categorie categorie = selectCategorieById(id_categorie);
+				Categorie categorie = DAOFactory.getCategorieDAO().selectById(id_categorie);
 				
 				Article article = new Article(rs.getString("nom_article"),rs.getString("description"),rs.getDate("date_debut_encheres"),rs.getDate("date_fin-encheres"),rs.getInt("prix_vente"),acheteur,vendeur,categorie);
 				
@@ -113,7 +111,6 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 			
 			} 
 	catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
@@ -121,26 +118,6 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 		return articles;
 	}
 
-	@Override
-	
-	//nom du parametre est le même que celui mis dans la DAO
-	public Categorie selectCategorieById(int id_categorie) {
-		Categorie categorie = null;
-		try(Connection cnx = ConnectionProvider.getConnection()){
-			PreparedStatement pStmt = cnx.prepareStatement(SELECT_CATEGORIE_BY_ID);//ligne 31-32
-			pStmt.setInt(1, id_categorie);
-			ResultSet rs = pStmt.executeQuery();
-			if(rs.next()){ 
-			categorie = new Categorie(rs.getString("libelle"));
-			}
-		}
-		catch (SQLException e) {
-		
-			e.printStackTrace();
-		}
-		return categorie;
-	}
-			
 		
 	
 }

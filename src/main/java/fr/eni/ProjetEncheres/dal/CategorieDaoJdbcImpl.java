@@ -39,7 +39,7 @@ public class CategorieDaoJdbcImpl implements CategorieDAO{
 			pStmt.setInt(1,id);
 			ResultSet rs = pStmt.executeQuery();
 			if(rs.next()) {
-				//TODO
+				categorie = new Categorie(id, rs.getString("libelle"));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
