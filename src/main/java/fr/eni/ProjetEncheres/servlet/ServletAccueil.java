@@ -35,6 +35,7 @@ public class ServletAccueil extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String deconnexion = request.getParameter("logout");
+		System.out.println(deconnexion);
 		if(deconnexion != null && deconnexion.equals("1")){
 			session.invalidate();
 		}

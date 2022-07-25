@@ -17,7 +17,7 @@
 				<ul>
 					<li><a href="${pageContext.servletContext.contextPath}/VendreArticle">Vendre un article</a></li>
 					<li><a href="${pageContext.servletContext.contextPath}/Profil">Mon profil</a></li>
-					<li><a href="${pageContext.servletContext.contextPath}/Accueil?deconnexion=1">Deconnexion</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/Accueil?logout=1">Deconnexion</a></li>
 				</ul>
 			</c:if>
 	</header>
