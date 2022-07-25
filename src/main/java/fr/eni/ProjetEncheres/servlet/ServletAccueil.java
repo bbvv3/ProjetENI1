@@ -20,7 +20,7 @@ import fr.eni.ProjetEncheres.bo.Categorie;
  * Servlet implementation class ServletAcceuil
  */
 
-public class ServletAcceuil extends HttpServlet {
+public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   
@@ -36,8 +36,7 @@ public class ServletAcceuil extends HttpServlet {
 		HttpSession session = request.getSession();
 		String deconnexion = request.getParameter("logout");
 		if(deconnexion != null && deconnexion.equals("1")){
-			session.setAttribute("login", null);
-			session.setAttribute("credit", null);
+			session.invalidate();
 		}
 		
 		List<Article> articles = ArticleManager.getInstance().selectAll();

@@ -26,7 +26,7 @@
 	
 	<h2>Filtres:</h2>
 	
-	<form action="<%request.getContextPath();%>/Acceuil" method=post>
+	<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
 	
 	<label for="idCategorie">Catégorie : </label>
         <select name="categorie" id="idCategorie" >

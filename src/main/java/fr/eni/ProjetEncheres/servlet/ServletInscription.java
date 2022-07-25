@@ -26,7 +26,7 @@ public class ServletInscription extends HttpServlet {
 		String url;
 		HttpSession session = request.getSession();
 			if(session.getAttribute("login")!=null) {
-				url="/Acceuil";
+				url="/Accueil";
 			}else {
 				url="/WEB-INF/jsp/Inscription.jsp";	
 			}

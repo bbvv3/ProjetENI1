@@ -30,13 +30,13 @@
   	
   		<servlet>
     <description></description>
-    <display-name>Acceuil</display-name>
-	    <servlet-name>Acceuil</servlet-name>
-	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletAcceuil</servlet-class>
+    <display-name>Accueil</display-name>
+	    <servlet-name>Accueil</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletAccueil</servlet-class>
   	</servlet>
   	<servlet-mapping>
-	    <servlet-name>Acceuil</servlet-name>
-	    <url-pattern>/Acceuil</url-pattern>
+	    <servlet-name>Accueil</servlet-name>
+	    <url-pattern>/Accueil</url-pattern>
   	</servlet-mapping>
   	
   	<servlet>
