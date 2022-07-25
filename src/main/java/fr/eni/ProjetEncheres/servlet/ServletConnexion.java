@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.ProjetEncheres.bll.UtilisateurManager;
-import fr.eni.ProjetEncheres.bo.Utilisateur;
 
 
 
@@ -25,7 +24,6 @@ public class ServletConnexion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url;
-		
 		
 		HttpSession session = request.getSession();
 			if(session.getAttribute("utilisateur")!=null) {
@@ -47,7 +45,6 @@ public class ServletConnexion extends HttpServlet {
 		String pseudo;
 		String mot_de_passe;
 		String utilisateur;
-		//Boolean connect = false;
 		String erreur = null;
 		
 		pseudo = request.getParameter("pseudo");// parametre dans le name dans la JSP
@@ -61,7 +58,6 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("utilisateur", utilisateur);
 		
 		}catch (Exception e){
-		// session.setAttribute("connect", connect);
 		request.setAttribute("erreur", erreur);
 		doGet(request, response);
 		}
