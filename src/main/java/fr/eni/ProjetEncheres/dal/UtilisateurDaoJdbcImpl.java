@@ -16,7 +16,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	private static final String SELECT_BY_ID="SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";//nommer les colonnes
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_EMAIL="SELECT * FROM UTILISATEURS WHERE email = ?";
-	private static final String UPDATE="UPDATE UTILISATEURS SET (pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?) WHERE no_utilisateur = ?;";
+	private static final String UPDATE="UPDATE UTILISATEURS SET pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ? WHERE no_utilisateur = ?;";
 
 	@Override
 	public List<Utilisateur> selectAll() {
@@ -37,7 +37,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 			pStmt.setInt(1, id);
 			ResultSet rs = pStmt.executeQuery();
 			if(rs.next()){ 
-			utilisateur = new Utilisateur(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur"));
+			utilisateur = new Utilisateur(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur"));
 			}
 			
 		} catch (SQLException e) {
@@ -91,7 +91,11 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 			pStmt.setString(7, utilisateur.getCode_postal());
 			pStmt.setString(8, utilisateur.getVille());
 			pStmt.setString(9, utilisateur.getMot_de_passe());
-			pStmt.executeUpdate();
+			pStmt.setInt(10, utilisateur.getNo_utilisateur());
+			int i =pStmt.executeUpdate();
+			if(i<1) {
+				System.out.println("utilisateur non modifié:" + utilisateur.getNo_utilisateur());
+			}
 			
 		}
 		catch (SQLException e)

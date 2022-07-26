@@ -27,7 +27,7 @@
 				<label for="id_prenom">Prenom : </label><input type="text" id="id_prenom" name="prenom" value="${utilisateur.getPrenom()}"/>
 			</div>
 			<div>
-				<label for="id_mail">Email : </label><input type="email" id="id_mail" name="mail" value="${utilisateur.getEmail()}"/>
+				<label for="id_mail">Email : </label><input type="email" id="id_mail" name="email" value="${utilisateur.getEmail()}"/>
 			</div>
 			<div>
 				<label for="id_tel">Téléphone : </label><input type="tel" id="id_tel" name="tel" value="${utilisateur.getTelephone()}"/>
@@ -36,16 +36,16 @@
 				<label for="id_rue">Rue : </label><input type="text" id="id_rue" name="rue" value="${utilisateur.getRue()}"/>
 			</div>
 			<div>
-				<label for="id_codePostal">Code postal : </label><input type="text" id="id_codePostal" name="codePostal" value="${utilisateur.getCode_postal()}"/>
+				<label for="id_codePostal">Code postal : </label><input type="text" id="id_codePostal" name="code_postal" value="${utilisateur.getCode_postal()}"/>
 			</div>
 			<div>
 				<label for="id_ville">Ville : </label><input type="text" id="id_ville" name="ville" value="${utilisateur.getVille()}"/>
 			</div>
 			<div>
-				<label for="id_motDePasse">Mot de passe : </label><input type="password" id="id_motDePasse" name="motDePasse" value="${utilisateur.getMot_de_passe()}"/>
+				<label for="id_motDePasse">Mot de passe : </label><input type="password" id="id_motDePasse" name="mot_de_passe" value="${utilisateur.getMot_de_passe()}"/>
 			</div>
 			<div>
-				<label for="id_conf_motDePasse">Confirmation du mot de passe : </label><input type="password" id="id_conf_motDePasse"" name="conf_motDePasse" value="${utilisateur.getMot_de_passe()}"/>
+				<label for="id_conf_motDePasse">Confirmation du mot de passe : </label><input type="password" id="id_conf_motDePasse" name="conf_mot_de_passe" value="${utilisateur.getMot_de_passe()}"/>
 			</div>
 			<div>
 				<label for="id_credit">Crédit: </label><input type="text" id="id_credit" name="credit" value="${utilisateur.getCredit()}"/>

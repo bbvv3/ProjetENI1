@@ -29,7 +29,7 @@ public class ServletProfil extends HttpServlet {
 		
 		String url = "/WEB-INF/jsp/Profil.jsp";
 		Utilisateur utilisateur ;
-		HttpSession session = request.getSession();//on crée une session
+		HttpSession session = request.getSession();//on ouvre le contenu de la  session
 		//on récupére l'id de l'utilisateur dans la session
 		//si l'id est différent de null ,on selectionne son idgrâce a la methode selectById et l'on accéde a la page Acceuil
 		if(session.getAttribute("id")!=null) {

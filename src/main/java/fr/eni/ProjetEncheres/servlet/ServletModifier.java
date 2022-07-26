@@ -54,7 +54,7 @@ public class ServletModifier extends HttpServlet {
 		String email = request.getParameter("email");
 		String telephone = request.getParameter("telephone");
 		String rue = request.getParameter("rue");
-		String code_postal = request.getParameter("code_Postal");
+		String code_postal = request.getParameter("code_postal");
 		String ville = request.getParameter("ville");
 		String mot_de_passe = request.getParameter("mot_de_passe");
 		String conf_mot_de_passe = request.getParameter("conf_mot_de_passe");
@@ -64,18 +64,14 @@ public class ServletModifier extends HttpServlet {
 		
 		try {
 			UtilisateurManager.getInstance().update(no_utilisateur,pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,conf_mot_de_passe);
+			RequestDispatcher rd = request.getRequestDispatcher("/Profil");
+			rd.forward(request, response);
 		} catch (Exception e) {
 			erreur = e.getMessage();
 			e.printStackTrace();
 			request.setAttribute("erreur", erreur);
+			doGet(request, response);
 		}
-		if(erreur == ""){
-			RequestDispatcher rd = request.getRequestDispatcher("/Profil");
-			rd.forward(request, response);
-		}
-		
-	
-		doGet(request, response);
 	}
 
 }
