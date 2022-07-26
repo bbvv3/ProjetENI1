@@ -13,6 +13,8 @@
 			<c:if test="${id == null}">
 				<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
 				<h2>Filtres:</h2>
+				</header>
+				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
 			</c:if>
 			<c:if test="${id != null}">
 				<ul>
@@ -21,6 +23,7 @@
 					<li><a href="${pageContext.servletContext.contextPath}/Accueil?logout=1">Deconnexion</a></li>
 				</ul>
 				<h2>Filtres:</h2>
+				</header>
 				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
 					<ul>
 						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onclick="test();" checked><label for="idAchats">Achats</label>
@@ -40,11 +43,6 @@
 					</ul>
 				</form>
 			</c:if>
-	</header>
-
-	
-	<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
-	
 	<label for="idCategorie">Catégorie : </label>
         <select name="categorie" id="idCategorie" >
         	<option value="0">Toutes</option>
@@ -58,11 +56,13 @@
 	<c:forEach var="a" items="${articles}">
 		<div>
 			<img src="" alt="image de l'article">
-			<h3></h3>
-			<p>Prix : ${a.getPrix_vente()} points</p>
-			<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
-			<p>Retrait : ?</p>
-			<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
+			<div>
+				<h3>${a.getNom_article()}</h3>
+				<p>Prix : ${a.getPrix_vente()} points</p>
+				<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
+				<p>Retrait : ${a.getVendeur().getRue()} ${a.getVendeur().getCode_postal()} ${a.getVendeur().getVille()}</p>
+				<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
+			</div>
 		</div>
 	</c:forEach>
 	
