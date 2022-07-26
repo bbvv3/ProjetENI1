@@ -11,9 +11,6 @@
 	<h1>Eni-Enchères</h1>
 	</header>
 	
-	<div>
-		<p> ${erreur } </p>
-	</div>
 	
 	<div>
 		<h2>Mon Profil</h2>

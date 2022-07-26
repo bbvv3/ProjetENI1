@@ -12,7 +12,9 @@
 		<h1>Eni-Enchères</h1>
 	</header>
 	
-	
+	<div>
+		<p> ${erreur } </p>
+	</div>
 	
 	<form action="${pageContext.servletContext.contextPath}/Modifier" method="post">
 			<div>

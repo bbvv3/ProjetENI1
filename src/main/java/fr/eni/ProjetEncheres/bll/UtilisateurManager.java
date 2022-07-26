@@ -138,15 +138,15 @@ public class UtilisateurManager {
 		 Utilisateur user = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
 		 
 		 	//nouveau pseudo != ancien pseudo
-		 if( pseudo!=utilisateur.getPseudo() && user!= null ) {
-			 throw new Exception("ce pseudo existe déjà");}
-		
+		 if( pseudo != utilisateur.getPseudo() && user != null) {
+			 throw new Exception("ce pseudo existe déjà");
+		 }
 		 utilisateur.setPseudo(pseudo);
 		 utilisateur.setNom(nom);
 		 utilisateur.setPrenom(prenom);
 		 
 		 user = DAOFactory.getUtilisateurDAO().selectByEmail(email);
-		 if (email!=utilisateur.getEmail() && user!=null ) {
+		 if (email != utilisateur.getEmail() && user != null ) {
 			 throw new Exception("Cet email existe déjà");
 		 }
 		 utilisateur.setEmail(email);

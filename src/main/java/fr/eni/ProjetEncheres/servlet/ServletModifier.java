@@ -26,16 +26,15 @@ public class ServletModifier extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/WEB-INF/jsp/Modifier.jsp";
 		Utilisateur utilisateur ;
-		HttpSession session = request.getSession();//on crée une session
+		HttpSession session = request.getSession();//on ouvre le contenu de la session
 		
 		if(session.getAttribute("id")!=null) {
 			int id = (int) session.getAttribute("id");
-		utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
-	
-	    //attribut utilisateur envoyée dans la JSP
-		request.setAttribute("utilisateur", utilisateur);
+			utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
+			//attribut utilisateur envoyée dans la JSP
+			request.setAttribute("utilisateur", utilisateur);
 		}
-		else//si le pseudo est inexistant,on est renvoyé dans la servlet connexion
+		else//si l'id est inexistant,on est renvoyé dans la servlet connexion
 		{
 		 url = "/Connexion";
 		}
@@ -66,12 +65,11 @@ public class ServletModifier extends HttpServlet {
 		try {
 			UtilisateurManager.getInstance().update(no_utilisateur,pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,conf_mot_de_passe);
 		} catch (Exception e) {
-			
 			erreur = e.getMessage();
+			e.printStackTrace();
 			request.setAttribute("erreur", erreur);
 		}
-		
-		if(erreur =="" ){
+		if(erreur == ""){
 			RequestDispatcher rd = request.getRequestDispatcher("/Profil");
 			rd.forward(request, response);
 		}
