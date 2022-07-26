@@ -12,6 +12,10 @@
 	</header>
 	
 	<div>
+		<p> ${erreur } </p>
+	</div>
+	
+	<div>
 		<h2>Mon Profil</h2>
 	
 			<div>
@@ -61,15 +65,10 @@
 				Ville : ${utilisateur.getVille()}
 			 	</p>
 			</div>
-			
-			
-				
 			<div>
-				<input type="submit" value="Enregistrer"/>
-				<input type="submit" value="Supprimer mon compte"/>
-				<input type="submit" value="Retour"/>
+			<a href="${pageContext.servletContext.contextPath }/Modifier"><button>Modifier</button></a>
 			</div>
-		</form>
+		
 	</div>
 
 </body>

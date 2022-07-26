@@ -27,13 +27,12 @@ public class ServletModifier extends HttpServlet {
 		String url = "/WEB-INF/jsp/Modifier.jsp";
 		Utilisateur utilisateur ;
 		HttpSession session = request.getSession();//on crée une session
-		String pseudo = (String)session.getAttribute("login");//on récupére le pseudo de l'utilisateur dans la session
+		String pseudo = (String)session.getAttribute("id");//on récupére le pseudo de l'utilisateur dans la session
 		
 		//si le pseudo est différent de null ,on selectionne son pseudo grâce a la methode selectBySpeudo et l'on accéde a la page Acceuil
 		if(pseudo != null) {
 		utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
-	
-		//attribut utilisateur envoyée dqns la JSP
+	    //attribut utilisateur envoyée dqns la JSP
 		request.setAttribute("utilisateur", utilisateur);
 		}
 		else//si le pseudo est inexistant,on est renvoyé dans la servlet connexion
@@ -62,7 +61,7 @@ public class ServletModifier extends HttpServlet {
 		String conf_mot_de_passe = request.getParameter("conf_mot_de_passe");
 		
 		HttpSession session = request.getSession();
-		int no_utilisateur = (int) request.getAttribute("id");
+		int no_utilisateur = (int) session.getAttribute("id");
 		
 		try {
 			UtilisateurManager.getInstance().update(no_utilisateur,pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,conf_mot_de_passe);
@@ -70,6 +69,11 @@ public class ServletModifier extends HttpServlet {
 			
 			erreur = e.getMessage();
 			request.setAttribute("erreur", erreur);
+		}
+		
+		if(erreur =="" ){
+			RequestDispatcher rd = request.getRequestDispatcher("/Profil");
+			rd.forward(request, response);
 		}
 		
 	

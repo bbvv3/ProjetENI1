@@ -109,7 +109,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 			pStmt.setString(1,pseudo);
 			ResultSet rs = pStmt.executeQuery();
 			if(rs.next()) {
-				utilisateur =new Utilisateur(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur")); 
+				utilisateur =new Utilisateur(rs.getInt(1),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur")); 
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

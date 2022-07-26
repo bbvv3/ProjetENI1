@@ -72,4 +72,15 @@
 	    <url-pattern>/Profil</url-pattern>
   	</servlet-mapping>
   	
+  	<servlet>
+    <description></description>
+    <display-name>Vente</display-name>
+	    <servlet-name>Vente</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletVente</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Vente</servlet-name>
+	    <url-pattern>/Vente</url-pattern>
+  	</servlet-mapping>
+  	
 </web-app>
