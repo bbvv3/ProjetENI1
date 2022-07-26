@@ -17,7 +17,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 	
 	private static final String SELECT_MOT_CLE = "SELECT * FROM ARTICLES WHERE nom LIKE ?;";
 	private static final String SELECT_BY_CATEGORIE="SELECT * FROM ARTICLES WHERE no_categorie = ?;";
-	private static final String SELECT_ALL = "SELECT * FROM ARICLES;";
+	private static final String SELECT_ALL = "SELECT * FROM ARTICLES;";
 	@Override
 	public List<Article> selectAll() {
 		List<Article> articles = new ArrayList<>();

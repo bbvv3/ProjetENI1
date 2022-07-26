@@ -22,6 +22,22 @@ public class UtilisateurManager {
 		return instance;
 	}
 	
+	/**
+	 * 
+	 * @param pseudo
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param telephone
+	 * @param rue
+	 * @param code_postal
+	 * @param ville
+	 * @param mdp1
+	 * @param mdp2
+	 * @throws Exception
+	 * 
+	 * Recupère tout les parametres pour les inserer dans le tableau utilisateur de la BDD via la DAL si les critères sont valides
+	 */
 	public void insert(String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mdp1,String mdp2) throws Exception {
 		String erreur ="";
 		if(getInstance().selectByPseudo(pseudo) != null) {
@@ -46,16 +62,37 @@ public class UtilisateurManager {
 		DAOFactory.getUtilisateurDAO().insert(utilisateur);
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return Utilisateur
+	 * 
+	 * Retourne zero ou un utilisateur associé à l'id donné en paramètre
+	 */
 	public Utilisateur selectById(int id) {
 		
 		return DAOFactory.getUtilisateurDAO().selectById(id);
 		
 	}
-	
+	/**
+	 * 
+	 * @param pseudo
+	 * @return Utilisateur
+	 * 
+	 * Retourne zero ou un utilisateur associé au pseudo donné en paramètre
+	 */
 	public Utilisateur selectByPseudo(String pseudo) {
 		return DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
 	}
-	
+	/**
+	 * 
+	 * @param pseudo
+	 * @param mot_de_passe
+	 * @return Utilisateur
+	 * @throws Exception
+	 * 
+	 * Retourne un utilisateur si le pseudo existe dans la BDD et si le mot de passe correspond
+	 */
 	public Utilisateur connexion (String pseudo,String mot_de_passe) throws Exception {
 		
 		Utilisateur utilisateur= DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
@@ -69,11 +106,33 @@ public class UtilisateurManager {
 		}
 	return utilisateur;
 	}
-	
+	/**
+	 * 
+	 * @param email
+	 * @return Utilisateur
+	 * 
+	 * Retourne zero ou un utilisateur associé à l'email donné en paramètre 
+	 */
 	public Utilisateur selectByEmail(String email) {
 		return DAOFactory.getUtilisateurDAO().selectByEmail(email);
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @param pseudo
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param telephone
+	 * @param rue
+	 * @param code_postal
+	 * @param ville
+	 * @param mot_de_passe
+	 * @param conf_mot_de_passe
+	 * @throws Exception
+	 * 
+	 * Recupère tout les parametres pour mettre à jour la ligne du tableau utilisateur associée à l'id donné en paramètre si les critères sont valides
+	 */
 	public void update(int id,String pseudo,String nom,String prenom,String email,String telephone,String rue,String code_postal,String ville,String mot_de_passe,String conf_mot_de_passe) throws Exception {
 		 Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
 		 Utilisateur user = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
@@ -104,6 +163,6 @@ public class UtilisateurManager {
 		DAOFactory.getUtilisateurDAO().update(utilisateur);
 		 
 	}
-	
+
 	
 }

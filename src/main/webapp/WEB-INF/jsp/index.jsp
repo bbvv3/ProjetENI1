@@ -10,10 +10,10 @@
 		
 	<header>
 		<h1>Eni-Enchères</h1>
-			<c:if test="${login == null}">
+			<c:if test="${id == null}">
 				<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
 			</c:if>
-			<c:if test="${login != null}">
+			<c:if test="${id != null}">
 				<ul>
 					<li><a href="${pageContext.servletContext.contextPath}/VendreArticle">Vendre un article</a></li>
 					<li><a href="${pageContext.servletContext.contextPath}/Profil">Mon profil</a></li>
@@ -45,7 +45,7 @@
 			<p>Prix : ${a.getPrix_vente()} points</p>
 			<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
 			<p>Retrait : ?</p>
-			<p>Vendeur : ${a.getVendeur()} </p>
+			<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
 		</div>
 	</c:forEach>
 	

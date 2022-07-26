@@ -26,7 +26,10 @@ public class ArticleManager {
 		public List<Article> selectByCategorie(int identifiant){
 			return DAOFactory.getArticleDAO().selectByCategorie(identifiant);
 		}
-		
+		/**
+		 * Retourne la liste complète des articles du tableau portant le même nom
+		 * @return
+		 */
 		public List<Article> selectAll(){
 			return DAOFactory.getArticleDAO().selectAll();
 		}
