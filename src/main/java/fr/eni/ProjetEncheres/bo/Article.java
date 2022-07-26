@@ -3,6 +3,7 @@ package fr.eni.ProjetEncheres.bo;
 import java.io.Serializable;
 import java.util.Date;
 
+
 public class Article implements Serializable {
 	
 	/**
@@ -55,6 +56,24 @@ public class Article implements Serializable {
 
 	
 	
+
+
+	public Article(int no_article, String nom_article, String description, Date date_debut_encheres,
+			Date date_fin_encheres, int prix_initial, int prix_vente, Utilisateur acheteur, Utilisateur vendeur,
+			Categorie categorie) {
+		super();
+		this.no_article = no_article;
+		this.nom_article = nom_article;
+		this.description = description;
+		this.date_debut_encheres = date_debut_encheres;
+		this.date_fin_encheres = date_fin_encheres;
+		this.prix_initial = prix_initial;
+		this.prix_vente = prix_vente;
+		this.acheteur = acheteur;
+		this.vendeur = vendeur;
+		this.categorie = categorie;
+	}
+
 
 
 	//GETTERS & SETTERS	

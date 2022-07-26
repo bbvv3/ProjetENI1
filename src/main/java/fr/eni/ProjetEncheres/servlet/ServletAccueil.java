@@ -42,6 +42,7 @@ public class ServletAccueil extends HttpServlet {
 		
 		List<Article> articles = ArticleManager.getInstance().selectAll();
 		request.setAttribute("articles", articles);
+		System.out.println(articles);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);

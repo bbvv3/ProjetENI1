@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,27 @@ public class ArticleDaoJdbcImpl implements ArticleDAO{
 	
 	private static final String SELECT_MOT_CLE = "SELECT * FROM ARTICLES WHERE nom LIKE ?;";
 	private static final String SELECT_BY_CATEGORIE="SELECT * FROM ARTICLES WHERE no_categorie = ?;";
+	private static final String SELECT_ALL = "SELECT * FROM ARICLES;";
 	@Override
 	public List<Article> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Article> articles = new ArrayList<>();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_ALL);
+			while (rs.next()) {
+				int idVendeur = rs.getInt(8);
+				int idAcheteur = rs.getInt(10);
+				int idCategorie = rs.getInt(9);
+				Utilisateur vendeur = DAOFactory.getUtilisateurDAO().selectById(idVendeur);
+				Utilisateur acheteur = DAOFactory.getUtilisateurDAO().selectById(idAcheteur);
+				Categorie categorie = DAOFactory.getCategorieDAO().selectById(idCategorie);
+				Article art = new Article(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getDate(5),rs.getInt(6),rs.getInt(7),acheteur,vendeur,categorie);
+				articles.add(art);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return articles;
 	}
 
 	@Override
