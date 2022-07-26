@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Liste des enchères</title>
-<script type="application/javascript" src="js/index.js"> </script>
 </head>
 <body>
 		
@@ -24,14 +23,14 @@
 				<h2>Filtres:</h2>
 				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
 					<ul>
-						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onclick="coche(this,checkAchat,checkVente)" checked><label for="idAchats">Achats</label>
+						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onclick="test();" checked><label for="idAchats">Achats</label>
 							<ul>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresOuvertes" name="etat1" ><label for="idEncheresOuvertes" >enchères ouvertes</label></li>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresEnCours" name="etat2" ><label for="idEncheresEnCours">mes enchères en cours</label></li>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresRemportees" name="etat3" ><label for="idEncheresRemportees">mes enchères remportées</label></li>
 							</ul>
 						</li>
-						<li><input type="radio" id="idVentes" name="achatVente" value="ventes" onclick="coche(this,checkVente,checkAchat)"><label for="idVentes">Mes Ventes</label>
+						<li><input type="radio" id="idVentes" name="achatVente" value="ventes" onclick="coche(this,'checkVente','checkAchat')"><label for="idVentes">Mes Ventes</label>
 							<ul>
 								<li><input type="checkbox" class="checkVente" id="idVentesEnCours" name="etat1" disabled><label for="idVentesEnCours">mes ventes en cours</label></li>
 								<li><input type="checkbox" class="checkVente" id="idVentesNonDebutees" name="etat2" disabled><label for="idVentesNonDebutees">ventes non debutées</label></li>
@@ -66,7 +65,6 @@
 			<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
 		</div>
 	</c:forEach>
-	
 	
 		
 		
