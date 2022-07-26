@@ -35,14 +35,12 @@ public class ServletAccueil extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String deconnexion = request.getParameter("logout");
-		System.out.println(deconnexion);
 		if(deconnexion != null && deconnexion.equals("1")){
 			session.invalidate();
 		}
 		
 		List<Article> articles = ArticleManager.getInstance().selectAll();
 		request.setAttribute("articles", articles);
-		System.out.println(articles);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);

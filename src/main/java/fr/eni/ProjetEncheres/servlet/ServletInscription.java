@@ -58,7 +58,6 @@ public class ServletInscription extends HttpServlet {
 		//insertion et renvoi à l'acceuil si toutes les conditions sont validées sinon renvoi sur le formulaire avec les erreurs signalées
 		try {
 			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, confirmation);
-			System.out.println("insertion validée");
 			RequestDispatcher rd = request.getRequestDispatcher("/Connexion");
 			rd.forward(request, response);
 		} catch (Exception e) {
