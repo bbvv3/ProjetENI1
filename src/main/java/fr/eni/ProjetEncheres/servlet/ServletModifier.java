@@ -27,12 +27,12 @@ public class ServletModifier extends HttpServlet {
 		String url = "/WEB-INF/jsp/Modifier.jsp";
 		Utilisateur utilisateur ;
 		HttpSession session = request.getSession();//on crée une session
-		String pseudo = (String)session.getAttribute("id");//on récupére le pseudo de l'utilisateur dans la session
 		
-		//si le pseudo est différent de null ,on selectionne son pseudo grâce a la methode selectBySpeudo et l'on accéde a la page Acceuil
-		if(pseudo != null) {
-		utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
-	    //attribut utilisateur envoyée dqns la JSP
+		if(session.getAttribute("id")!=null) {
+			int id = (int) session.getAttribute("id");
+		utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
+	
+	    //attribut utilisateur envoyée dans la JSP
 		request.setAttribute("utilisateur", utilisateur);
 		}
 		else//si le pseudo est inexistant,on est renvoyé dans la servlet connexion

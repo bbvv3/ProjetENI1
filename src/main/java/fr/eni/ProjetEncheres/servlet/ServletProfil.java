@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eni.ProjetEncheres.bll.UtilisateurManager;
+
 import fr.eni.ProjetEncheres.bo.Utilisateur;
 import fr.eni.ProjetEncheres.dal.DAOFactory;
 
@@ -30,10 +30,11 @@ public class ServletProfil extends HttpServlet {
 		String url = "/WEB-INF/jsp/Profil.jsp";
 		Utilisateur utilisateur ;
 		HttpSession session = request.getSession();//on crée une session
-		String pseudo = (String)session.getAttribute("login");//on récupére le pseudo de l'utilisateur dans la session
-		//si le pseudo est différent de null ,on selectionne son pseudo grâce a la methode selectBySpeudo et l'on accéde a la page Acceuil
-		if(pseudo != null) {
-		utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+		//on récupére l'id de l'utilisateur dans la session
+		//si l'id est différent de null ,on selectionne son idgrâce a la methode selectById et l'on accéde a la page Acceuil
+		if(session.getAttribute("id")!=null) {
+			int id = (int) session.getAttribute("id");
+		utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
 	
 		//attribut utilisateur envoyée dqns la JSP
 		request.setAttribute("utilisateur", utilisateur);
