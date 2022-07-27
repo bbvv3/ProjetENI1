@@ -10,7 +10,7 @@
 <body>
 
 	<header>
-		<a href="${pageContext.servletContext.contextPath}/Acceuil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
+		<a href="${pageContext.servletContext.contextPath}/Accueil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
 	</header>
 	
 	<div>

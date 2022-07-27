@@ -10,12 +10,12 @@
 <body>
 		
 	<header>
-		<a href="${pageContext.servletContext.contextPath}/Acceuil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
+		<a href="${pageContext.servletContext.contextPath}/Accueil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
 			<c:if test="${id == null}">
 				<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
 				<h2>Filtres:</h2>
 				</header>
-				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
+				<form action="${pageContext.servletContext.contextPath}/Accueil" method=post>
 			</c:if>
 			<c:if test="${id != null}">
 				<ul>
@@ -25,7 +25,7 @@
 				</ul>
 				<h2>Filtres:</h2>
 				</header>
-				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
+				<form action="${pageContext.servletContext.contextPath}/Accueil" method=post>
 					<ul>
 						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onchange="coche()" checked><label for="idAchats">Achats</label>
 							<ul>
