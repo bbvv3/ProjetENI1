@@ -52,10 +52,9 @@
 			</div>
 			<div>
 				<input type="submit" value="Enregistrer"/>
-			</div>	
-		
-			<a href=""><button>Supprimer mon compte</button></a>
-			<a href="${pageContext.servletContext.contextPath }/Profil"><button>Retour</button></a>
+				<a href="${pageContext.servletContext.contextPath }/Modifier?suppr=1"><button>Supprimer mon compte</button></a>
+				<a href="${pageContext.servletContext.contextPath }/Profil"><button>Retour</button></a>
+			</div>		
 	</form>
 
 </html>

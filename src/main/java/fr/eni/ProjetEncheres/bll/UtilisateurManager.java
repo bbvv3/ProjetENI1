@@ -163,6 +163,10 @@ public class UtilisateurManager {
 		DAOFactory.getUtilisateurDAO().update(utilisateur);
 		 
 	}
+	
+	public void delete(int id) {
+		DAOFactory.getUtilisateurDAO().delete(id);
+	}
 
 	
 }

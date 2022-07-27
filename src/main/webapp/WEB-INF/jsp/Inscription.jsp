@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 	<header>
-	<h1>Eni-Enchères</h1>
+	<a href="${pageContext.servletContext.contextPath}/Acceuil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
 	</header>
 	<div>
 		<h2>Créer un compte</h2>
@@ -53,5 +54,8 @@
 			</div>
 		</form>
 	</div>
+	<footer>
+		<a href="https://www.flaticon.com/fr/icones-gratuites/encheres" title="enchères icônes">Enchères icônes créées par Smashicons - Flaticon</a>
+	</footer>
 </body>
 </html>
