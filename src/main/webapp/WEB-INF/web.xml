@@ -83,4 +83,15 @@
 	    <url-pattern>/Vente</url-pattern>
   	</servlet-mapping>
   	
+  	<servlet>
+    <description></description>
+    <display-name>Nouvelle_Vente</display-name>
+	    <servlet-name>Nouvelle_Vente</servlet-name>
+	    <servlet-class>fr.eni.ProjetEncheres.servlet.ServletNouvelleVente</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	    <servlet-name>Nouvelle_Vente</servlet-name>
+	    <url-pattern>/Nouvelle_Vente</url-pattern>
+  	</servlet-mapping>
+  	
 </web-app>
