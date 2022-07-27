@@ -17,7 +17,8 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_EMAIL="SELECT * FROM UTILISATEURS WHERE email = ?";
 	private static final String UPDATE="UPDATE UTILISATEURS SET pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ? WHERE no_utilisateur = ?;";
-
+	private static final String DELETE="DELETE FROM UTILISATEURS WHERE no_utilisateur = ?;";
+	
 	@Override
 	public List<Utilisateur> selectAll() {
 		
@@ -73,8 +74,13 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO{
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pStmt = cnx.prepareStatement(DELETE);
+			pStmt.setInt(1, id);
+			pStmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

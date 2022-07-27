@@ -33,11 +33,18 @@ public class ServletModifier extends HttpServlet {
 			utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
 			//attribut utilisateur envoyée dans la JSP
 			request.setAttribute("utilisateur", utilisateur);
+			String suppression = request.getParameter("suppr");
+			if(suppression != null && suppression.equals("1")) {
+				UtilisateurManager.getInstance().delete(id);
+				session.invalidate();
+				url="/Accueil";
+			}
 		}
 		else//si l'id est inexistant,on est renvoyé dans la servlet connexion
 		{
 		 url = "/Connexion";
 		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}

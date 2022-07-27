@@ -5,15 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Liste des enchères</title>
-<script type="application/javascript" src="js/index.js"> </script>
+
 </head>
 <body>
 		
 	<header>
-		<h1>Eni-Enchères</h1>
+		<a href="${pageContext.servletContext.contextPath}/Accueil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
 			<c:if test="${id == null}">
 				<p><a href="${pageContext.servletContext.contextPath}/Inscription">S'inscrire</a> - <a href="${pageContext.servletContext.contextPath}/Connexion"> Se connecter</a></p>
 				<h2>Filtres:</h2>
+				</header>
+				<form action="${pageContext.servletContext.contextPath}/Accueil" method=post>
 			</c:if>
 			<c:if test="${id != null}">
 				<ul>
@@ -22,16 +24,17 @@
 					<li><a href="${pageContext.servletContext.contextPath}/Accueil?logout=1">Deconnexion</a></li>
 				</ul>
 				<h2>Filtres:</h2>
-				<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
+				</header>
+				<form action="${pageContext.servletContext.contextPath}/Accueil" method=post>
 					<ul>
-						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onclick="coche(this,checkAchat,checkVente)" checked><label for="idAchats">Achats</label>
+						<li><input type="radio" id="idAchats" name="achatVente" value="achats" onchange="coche()" checked><label for="idAchats">Achats</label>
 							<ul>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresOuvertes" name="etat1" ><label for="idEncheresOuvertes" >enchères ouvertes</label></li>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresEnCours" name="etat2" ><label for="idEncheresEnCours">mes enchères en cours</label></li>
 								<li><input type="checkbox" class="checkAchat" id="idEncheresRemportees" name="etat3" ><label for="idEncheresRemportees">mes enchères remportées</label></li>
 							</ul>
 						</li>
-						<li><input type="radio" id="idVentes" name="achatVente" value="ventes" onclick="coche(this,checkVente,checkAchat)"><label for="idVentes">Mes Ventes</label>
+						<li><input type="radio" id="idVentes" name="achatVente" value="ventes"><label for="idVentes">Mes Ventes</label>
 							<ul>
 								<li><input type="checkbox" class="checkVente" id="idVentesEnCours" name="etat1" disabled><label for="idVentesEnCours">mes ventes en cours</label></li>
 								<li><input type="checkbox" class="checkVente" id="idVentesNonDebutees" name="etat2" disabled><label for="idVentesNonDebutees">ventes non debutées</label></li>
@@ -41,11 +44,6 @@
 					</ul>
 				</form>
 			</c:if>
-	</header>
-
-	
-	<form action="${pageContext.servletContext.contextPath}/Acceuil" method=post>
-	
 	<label for="idCategorie">Catégorie : </label>
         <select name="categorie" id="idCategorie" >
         	<option value="0">Toutes</option>
@@ -59,16 +57,47 @@
 	<c:forEach var="a" items="${articles}">
 		<div>
 			<img src="" alt="image de l'article">
-			<h3></h3>
-			<p>Prix : ${a.getPrix_vente()} points</p>
-			<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
-			<p>Retrait : ?</p>
-			<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
+			<div>
+				<h3>${a.getNom_article()}</h3>
+				<p>Prix : ${a.getPrix_vente()} points</p>
+				<p>Fin de l'enchère : ${a.getDate_fin_encheres()} </p>
+				<p>Retrait : ${a.getVendeur().getRue()} ${a.getVendeur().getCode_postal()} ${a.getVendeur().getVille()}</p>
+				<p>Vendeur : ${a.getVendeur().getPseudo()} </p>
+			</div>
 		</div>
 	</c:forEach>
 	
-	
-		
-		
+	<script type="text/javascript">
+		function coche(){
+			var radioA = document.getElementById("idAchats");
+			var radioV = document.getElementById("idVentes");
+			
+			var checkA1 = document.getElementById("idEncheresOuvertes");
+			var checkA2 = document.getElementById("idEncheresEnCours");
+			var checkA3 = document.getElementById("idEncheresRemportees");
+			var checkV1 = document.getElementById("idVentesEnCours");
+			var checkV2 = document.getElementById("idVentesNonDebutees");
+			var checkV3 = document.getElementById("idVentesTerminees");
+			
+			if(radioA.checked){
+				checkA1.removeAttribute('disabled');
+				checkA2.removeAttribute('disabled');
+				checkA3.removeAttribute('disabled');
+				checkV1.setAttribute('disabled', '');
+				checkV2.setAttribute('disabled', '');
+				checkV3.setAttribute('disabled', '');
+			}else{
+				checkA1.setAttribute('disabled', '');
+				checkA2.setAttribute('disabled', '');
+				checkA3.setAttribute('disabled', '');
+				checkV1.removeAttribute('disabled');
+				checkV2.removeAttribute('disabled');
+				checkV3.removeAttribute('disabled');
+			}					
+		}
+	</script>
+	<footer>
+		<a href="https://www.flaticon.com/fr/icones-gratuites/encheres" title="enchères icônes">Enchères icônes créées par Smashicons - Flaticon</a>
+	</footer>	
 </body>
 </html>
