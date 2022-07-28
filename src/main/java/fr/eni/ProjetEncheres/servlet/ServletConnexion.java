@@ -57,8 +57,13 @@ public class ServletConnexion extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", utilisateur.getNo_utilisateur());
 		}catch (Exception e){
+<<<<<<< HEAD
 			
 		request.setAttribute("erreur", e.getMessage());
+=======
+			erreur = e.getMessage();
+			request.setAttribute("erreur", erreur);
+>>>>>>> branch 'main' of https://github.com/bbvv3/ProjetENI1.git
 		}
 		doGet(request, response);
 	}
