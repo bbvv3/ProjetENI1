@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body{
+	font-size:22px;
+	padding:0;
+}
+
+.bordure{
+	padding:0;
+}
+
+#logolien{
+	margin:40px 0 200px 0;
+}
+
+#divId, #divMdp{
+	margin-bottom: 30px;
+}
+#gestionMdp{
+	text-align:right;
+}
+#divConnexion, #btnConnexion{
+	height:67.844px;
+}
+#btnInscription{
+	color:#000;
+}
+#divGestion{
+	margin:30px 0 30px 0;
+}
+#lienInscription{
+	margin-top:70px;
+}
+#lienInscription, #btnInscription{
+	height:140px;
+}
+#lienInscription{
+	margin-bottom:40px;
+}

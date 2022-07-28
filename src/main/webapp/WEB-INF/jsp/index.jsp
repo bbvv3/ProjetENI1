@@ -98,8 +98,5 @@
 			}					
 		}
 	</script>
-	<footer>
-		<a href="https://www.flaticon.com/fr/icones-gratuites/encheres" title="enchères icônes">Enchères icônes créées par Smashicons - Flaticon</a>
-	</footer>	
 </body>
 </html>

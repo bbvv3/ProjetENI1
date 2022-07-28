@@ -7,43 +7,54 @@
 <meta charset="UTF-8">
 <title>Connexion</title>
 
-<!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="css/connexion.css" rel="stylesheet">
 </head>
-<body class="container-fluid col-sm-10 col-sm-offset-1">
+<body class="container-fluid col-xs-8 col-xs-offset-2 bordure">
 
-	<header>
-		<a href="${pageContext.servletContext.contextPath}/Accueil"><img src="" alt="logo ENI-Enchères"><h1>Eni-Enchères</h1></a>
+		<!--  <div>
+            <span class="col-xs-12 visible-xs alert alert-danger">Extra small</span>
+            <span class="col-sm-12 visible-sm alert alert-info">Small</span>
+            <span class="col-md-12 visible-md alert alert-success">Medium</span>
+            <span class="col-lg-12 visible-lg alert alert-warning">large</span>
+        </div>
+        <hr/> -->
+
+	<header id="logolien" class="col-xs-12">
+		<a href="${pageContext.servletContext.contextPath}/Accueil" class="col-xs-6">
+			<img src="img/logo.png" alt="logo ENI-Enchères" class="col-xs-12">
+		</a>
 	</header>
-	
-	<div >
-		<p class="col-xs- col-lg-2 alert alert-danger"> ${erreur} </p>
+	<div class="col-xs-12">
+		<p class="col-xs-10 col-xs-offsset-1 col-lg-2"> ${erreur} </p>
 	</div>
 
-	<section class="col-xs-12">		
+	<section class="col-xs-12  bordure">		
 		<form action="${pageContext.servletContext.contextPath}/Connexion" method="post">
-			<div>
-				<label for="identifiant" class="col-xs-3">Identifiant :</label>
-				<input type="text" id="identifiant" name="pseudo" size="30" required/>
+			<div id="divId" class="col-xs-12 bordure">
+				<label for="identifiant" class="col-xs-4 bordure">Identifiant :</label>
+				<input type="text" id="identifiant" name="pseudo" size="30" class="col-xs-8" required/>
 				<!-- name = parametre envoyé a la servlet -->	
 			</div>
-			<div class="col-xs-12">	
-				<label for="mot_de_passe">Mot de passe :</label>
-				<input type="password" id="mot_de_passe" name="mot_de_passe" size="20" required/><br>
+			<div id="divMdp" class="col-xs-12 bordure">	
+				<label for="mot_de_passe" class="col-xs-4 bordure">Mot de passe :</label>
+				<input type="password" id="mot_de_passe" name="mot_de_passe" size="20" class="col-xs-8" required/><br>
 			</div>		
-			<div>
-				<input class="col-xs-6" type="submit" value="Connexion"/>		
-				<div>
+			
+			<div id="divGestion" class="col-xs-12 bordure espacement" >
+				<div id="divConnexion" class="col-xs-5">
+					<input id="btnConnexion" class="col-xs-12" type="submit" value="Connexion"/>		
+				</div>
+				<div id="gestionMdp" class="col-xs-6 bordure">
 					<input type="checkbox" id="se_souvenir" name="se_souvenir">
 					<label for="se_souvenir">Se souvenir de moi</label><br>		
 					<a href="">Mot de passe oublié</a><br>
 				</div>
 			</div>		
-			<a class="col-xs-12" href="${pageContext.servletContext.contextPath}/Inscription"><button>Créer un compte</button></a>
+			<a id="lienInscription" class="col-xs-12 bordure espacement" href="${pageContext.servletContext.contextPath}/Inscription"><button id="btnInscription" class="col-xs-12 bordure">Créer un compte</button></a>
 		</form>
 	</section>
-	<footer>
-		<a href="https://www.flaticon.com/fr/icones-gratuites/encheres" title="enchères icônes">Enchères icônes créées par Smashicons - Flaticon</a>
-	</footer>
 </body>
 </html>
