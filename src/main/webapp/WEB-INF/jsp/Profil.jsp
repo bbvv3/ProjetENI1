@@ -5,65 +5,98 @@
 <head>
 <meta charset="UTF-8">
 <title>Profil</title>
+<!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/modifier.css" rel="stylesheet">
 </head>
-<body>
-	<header>
-	<h1>Eni-Enchères</h1>
+<body class="container-fluid col-xs-8 col-xs-offset-2 bordure">
+	<header id="logolien" class="col-xs-12">
+		<a href="${pageContext.servletContext.contextPath}/Accueil" class="col-xs-6">
+			<img src="img/logo.png" alt="logo ENI-Enchères" class="col-xs-12">
+		</a>
 	</header>
 	
 	
 	<div>
-		<h2>Mon Profil</h2>
+		<h1 id="titre">${utilisateur.getPseudo()}</h1>
 	
-			<div>
-				<p>
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
 			<!-- attribut récupérer de l'utilsateur avec le setAttribut de la servlet -->
-				Pseudo : ${utilisateur.getPseudo()}
+				Pseudo : 
+				</p>
+				<p class="col-xs-8 marge">
+				${utilisateur.getPseudo()}
 				</p>
 			</div>
 			
-			<div>
-				<p>
-				Nom : ${utilisateur.getNom()}
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Nom : 
+				</p>
+				<p class="col-xs-8 marge">
+				${utilisateur.getNom()}
 				</p>
 			</div>
 			
-			<div>
-				<p>
-				Prenom : ${utilisateur.getPrenom()}
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Prenom :
 				</p>
-			</div>
-			<div>
-				<p>
-				Email : ${utilisateur.getEmail()}
-				</p>
-			</div>
-			
-			<div>
-				<p>
-				Téléphone : ${utilisateur.getTelephone()}
+				<p class="col-xs-8 marge">
+				${utilisateur.getPrenom()}
 				</p>
 			</div>
 			
-			<div>
-				<p>
-				Rue : ${utilisateur.getRue()}
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Email : 
+				</p>
+				
+				<p class="col-xs-8 marge">
+				${utilisateur.getEmail()}
 				</p>
 			</div>
 			
-			<div>
-				<p>
-				Code postal : ${utilisateur.getCode_postal()}
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Téléphone : 
+				</p>
+				<p class="col-xs-8 marge">
+				${utilisateur.getTelephone()}
+				</p>
+			</div>
+			
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Rue :
+				</p>
+				<p class="col-xs-8 marge">
+				${utilisateur.getRue()}
+				</p>
+			</div>
+			
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Code postal : 
 				</p> 
+				<p class="col-xs-8 marge">
+				${utilisateur.getCode_postal()}
+				</p>
 			</div>
 			
-			<div>
-				<p>
-				Ville : ${utilisateur.getVille()}
+			<div class="col-xs-12 marge insertion" >
+				<p class="col-xs-4 marge">
+				Ville :
 			 	</p>
+			 	<p class="col-xs-8 marge">
+				${utilisateur.getVille()}
+				</p>
 			</div>
-			<div>
-			<a href="${pageContext.servletContext.contextPath }/Modifier"><button>Modifier</button></a>
+			
+			<div class="col-xs-12 marge insertion" >
+			<a href="${pageContext.servletContext.contextPath }/Modifier"><button id="btn-modif">Modifier</button></a>
 			</div>
 		
 	</div>

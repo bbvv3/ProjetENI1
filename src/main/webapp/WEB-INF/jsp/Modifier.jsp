@@ -75,9 +75,9 @@
 			</div>
 			
 			<div id="m_ex" class="col-xs-12 marge">
-				<input class="col-xs-2 marge" id="btm_enr" type="submit" value="Enregistrer"/>
-				<a href="${pageContext.servletContext.contextPath }/Modifier?suppr=1"><button class="col-xs-6 marge"  id="btm_sup">Supprimer mon compte</button></a>
-				<a href="${pageContext.servletContext.contextPath }/Profil"><button class="col-xs-2 marge" id="btm_ret">Retour</button></a>
+				<input class="col-xs-2 marge" id="btn_enr" type="submit" value="Enregistrer"/>
+				<a href="${pageContext.servletContext.contextPath }/Modifier?suppr=1"><button class="col-xs-6 marge"  id="btn_sup">Supprimer mon compte</button></a>
+				<a href="${pageContext.servletContext.contextPath }/Profil"><button class="col-xs-2 marge" id="btn_ret">Retour</button></a>
 			</div>		
 	</form>
 	</section>

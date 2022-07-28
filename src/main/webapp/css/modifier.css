@@ -25,26 +25,32 @@ body{
 .bold{
 	font-weight : bold;
 }
-#btm_enr{
+#btn_enr{
 
 	height : 68px;
 	margin-right : 75px;
 	margin-bottom : 30px;
 
+
 }
-#btm_sup{
+#btn_sup{
 	height : 68px;
 	margin-right : 75px;
 	margin-bottom : 30px;
-	
+	color:black;
 	
 }
-#btm_ret{
+#btn_ret{
    height : 68px;
    margin-bottom : 30px;
-   
+   color:black;
    
    
 }
-
+#btn_modif{
+	 height : 68px;
+   margin-bottom : 30px;
+	
+	
+}
 
