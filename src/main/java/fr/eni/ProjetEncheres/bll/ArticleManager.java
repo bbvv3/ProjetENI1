@@ -1,8 +1,11 @@
 package fr.eni.ProjetEncheres.bll;
 
+import java.util.Date;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.bo.Article;
+import fr.eni.ProjetEncheres.bo.Categorie;
+import fr.eni.ProjetEncheres.bo.Utilisateur;
 import fr.eni.ProjetEncheres.dal.DAOFactory;
 
 public class ArticleManager {
@@ -32,5 +35,15 @@ public class ArticleManager {
 		 */
 		public List<Article> selectAll(){
 			return DAOFactory.getArticleDAO().selectAll();
+		}
+		
+		public void insert(String nom_article,String description,int prix_initial,Date date_debut_encheres,Date date_fin_encheres,int no_vendeur,int no_categorie) {
+			Utilisateur vendeur = DAOFactory.getUtilisateurDAO().selectById(no_vendeur);
+			Categorie categorie = DAOFactory.getCategorieDAO().selectById(no_categorie);
+			
+			
+			Article article = new Article(nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,vendeur,categorie);		
+		
+			DAOFactory.getArticleDAO().insert(article);
 		}
 }

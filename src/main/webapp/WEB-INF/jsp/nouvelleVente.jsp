@@ -31,7 +31,8 @@
 		
 		<div>
 		<label for="id_description">Description :</label>
-		<textarea id="id_description" name="description"  value="${article.getDescription()}" placeholder="300 caractères maximum">
+		<textarea id="id_description" name="description" >
+		300 caractères maximum
 		</textarea>
 		</div>
 	
@@ -41,18 +42,18 @@
 		</div>
 
 		<div>
-		 <label for="id_proposition">Prix initial :</label>
-        <input type="number" name="proposition" id="id_proposition"  value="${article.getPrix_initial()}" min="1" max="" step="1">
+		 <label for="id_prix_initial">Prix initial :</label>
+        <input type="number" name="prix_initial" id="id_prix_initial"  min="1" max="" step="1">
 		</div>
 		
 		<div>
 		<label for="id_deb_enchere">Début de l'enchère :</label>
-		<input type="date" id="id_deb_enchere" name="deb_enchere" value="${article.getDate_debut_encheres()}" min="" max="">
+		<input type="date" id="id_deb_enchere" name="deb_enchere" min="" max="">
 		</div>
 		
 		<div>
 		<label for="id_fin_enchere">Fin de l'enchère :</label>
-		<input type="date" id="id_fin_enchere" name="fin_enchere" value="${article.getDate_fin_encheres()}"   min="" max="">
+		<input type="date" id="id_fin_enchere" name="fin_enchere"   min="" max="">
 		</div>
 		
 	</form>

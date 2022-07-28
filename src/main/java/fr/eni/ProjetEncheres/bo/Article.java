@@ -75,7 +75,30 @@ public class Article implements Serializable {
 	}
 
 
+	
 
+
+
+
+	/**
+	 * @param nom_article
+	 * @param description
+	 * @param date_debut_encheres
+	 * @param date_fin_encheres
+	 * @param prix_initial
+	 * @param vendeur
+	 * @param categorie
+	 */
+	public Article(String nom_article, String description, Date date_debut_encheres, Date date_fin_encheres,
+			int prix_initial, Utilisateur vendeur, Categorie categorie) {
+		this.nom_article = nom_article;
+		this.description = description;
+		this.date_debut_encheres = date_debut_encheres;
+		this.date_fin_encheres = date_fin_encheres;
+		this.prix_initial = prix_initial;
+		this.vendeur = vendeur;
+		this.categorie = categorie;
+	}
 
 
 
