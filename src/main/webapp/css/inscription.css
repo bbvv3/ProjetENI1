@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body{
+	font-size:22px;
+}
+
+.bordure{
+	padding:0;
+}
+
+#logolien{
+	margin:40px 0 40px 0;
+}
+#titre{
+	text-align:center;
+	font-weight:bold;
+}
+.insertion{
+	margin:10px 0 10px 0;
+}
+#divBtns{
+	margin: 50px 0 50px 0;
+	display:flex;
+	justify-content: space-between;
+}
+#divBtns input{
+	height:70px;
+}
+@media(min-width: 992px){
+	#divBtns{
+	justify-content: space-around;
+}
+}
