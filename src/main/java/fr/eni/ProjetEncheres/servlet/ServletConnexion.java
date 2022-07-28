@@ -46,7 +46,7 @@ public class ServletConnexion extends HttpServlet {
 		String pseudo;
 		String mot_de_passe;
 		Utilisateur utilisateur;
-		String erreur = null;
+		
 		
 		pseudo = request.getParameter("pseudo");// parametre dans le name dans la JSP
 		mot_de_passe = request.getParameter("mot_de_passe");
@@ -57,7 +57,8 @@ public class ServletConnexion extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", utilisateur.getNo_utilisateur());
 		}catch (Exception e){
-		request.setAttribute("erreur", erreur);
+			
+		request.setAttribute("erreur", e.getMessage());
 		}
 		doGet(request, response);
 	}
