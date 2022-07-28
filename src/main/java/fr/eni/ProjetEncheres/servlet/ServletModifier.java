@@ -28,11 +28,13 @@ public class ServletModifier extends HttpServlet {
 		Utilisateur utilisateur ;
 		HttpSession session = request.getSession();//on ouvre le contenu de la session
 		
-		if(session.getAttribute("id")!=null) {
-			int id = (int) session.getAttribute("id");
+		if(session.getAttribute("id")!=null) {//un int ne peut pas être null
+			int id = (int) session.getAttribute("id");//retourne l'id de la session
 			utilisateur = DAOFactory.getUtilisateurDAO().selectById(id);
 			//attribut utilisateur envoyée dans la JSP
 			request.setAttribute("utilisateur", utilisateur);
+			
+			//supprimer de compte
 			String suppression = request.getParameter("suppr");
 			if(suppression != null && suppression.equals("1")) {
 				UtilisateurManager.getInstance().delete(id);
@@ -65,6 +67,7 @@ public class ServletModifier extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String mot_de_passe = request.getParameter("mot_de_passe");
 		String conf_mot_de_passe = request.getParameter("conf_mot_de_passe");
+		
 		
 		HttpSession session = request.getSession();
 		int no_utilisateur = (int) session.getAttribute("id");
