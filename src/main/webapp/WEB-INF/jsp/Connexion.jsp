@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Connexion</title>
+
+<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 

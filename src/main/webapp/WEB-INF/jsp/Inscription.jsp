@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Inscription</title>
  <meta name="author" content="">
+ <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<header>

@@ -57,7 +57,8 @@ public class ServletConnexion extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", utilisateur.getNo_utilisateur());
 		}catch (Exception e){
-		request.setAttribute("erreur", erreur);
+			erreur = e.getMessage();
+			request.setAttribute("erreur", erreur);
 		}
 		doGet(request, response);
 	}
