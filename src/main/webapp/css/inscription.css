@@ -28,6 +28,9 @@ body{
 }
 @media(min-width: 992px){
 	#divBtns{
-	justify-content: space-around;
-}
+		justify-content: space-around;
+	}
+	body{
+		font-size:20px;
+	}
 }

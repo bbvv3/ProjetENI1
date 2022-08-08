@@ -7,7 +7,7 @@
 <title>Liste des enchères</title>
 
 <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 		
@@ -68,35 +68,6 @@
 			</div>
 		</div>
 	</c:forEach>
-	
-	<script type="text/javascript">
-		function coche(){
-			var radioA = document.getElementById("idAchats");
-			var radioV = document.getElementById("idVentes");
-			
-			var checkA1 = document.getElementById("idEncheresOuvertes");
-			var checkA2 = document.getElementById("idEncheresEnCours");
-			var checkA3 = document.getElementById("idEncheresRemportees");
-			var checkV1 = document.getElementById("idVentesEnCours");
-			var checkV2 = document.getElementById("idVentesNonDebutees");
-			var checkV3 = document.getElementById("idVentesTerminees");
-			
-			if(radioA.checked){
-				checkA1.removeAttribute('disabled');
-				checkA2.removeAttribute('disabled');
-				checkA3.removeAttribute('disabled');
-				checkV1.setAttribute('disabled', '');
-				checkV2.setAttribute('disabled', '');
-				checkV3.setAttribute('disabled', '');
-			}else{
-				checkA1.setAttribute('disabled', '');
-				checkA2.setAttribute('disabled', '');
-				checkA3.setAttribute('disabled', '');
-				checkV1.removeAttribute('disabled');
-				checkV2.removeAttribute('disabled');
-				checkV3.removeAttribute('disabled');
-			}					
-		}
-	</script>
 </body>
+<script src="js/index.js"></script>
 </html>

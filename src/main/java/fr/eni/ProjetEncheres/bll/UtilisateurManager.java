@@ -49,7 +49,7 @@ public class UtilisateurManager {
 			}
 			erreur += "Cet email existe déjà";
 		}
-		if(mdp1.equals(mdp2)) {
+		if(!mdp1.equals(mdp2)) {
 			if(!erreur.equals("")) {
 				erreur += " / ";
 			}
